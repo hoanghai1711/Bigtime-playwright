@@ -1,0 +1,225 @@
+{
+  "config": {
+    "configFile": "H:\\tooltesst\\hrm-automation\\playwright.config.ts",
+    "rootDir": "H:/tooltesst/hrm-automation/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "H:\\tooltesst\\hrm-automation\\node_modules\\allure-playwright\\dist\\index.js",
+        {
+          "outputFolder": "allure-results",
+          "detail": true,
+          "suiteTitle": false,
+          "environmentInfo": {
+            "node_version": "v24.11.1",
+            "os_platform": "win32",
+            "os_arch": "x64"
+          },
+          "categories": [
+            {
+              "name": "Test Failures",
+              "messageRegex": ".*Assertion failed.*",
+              "matchedStatuses": [
+                "failed"
+              ]
+            },
+            {
+              "name": "Test Defects",
+              "messageRegex": ".*Timeout.*|.*Network.*",
+              "matchedStatuses": [
+                "broken"
+              ]
+            },
+            {
+              "name": "Skipped Tests",
+              "matchedStatuses": [
+                "skipped"
+              ]
+            }
+          ]
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "junit-results.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "H:/tooltesst/hrm-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "H:/tooltesst/hrm-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "H:/tooltesst/hrm-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "H:/tooltesst/hrm-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "H:/tooltesst/hrm-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "cleanup",
+        "name": "cleanup",
+        "testDir": "H:/tooltesst/hrm-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.teardown\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "H:/tooltesst/hrm-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "e2e",
+        "name": "e2e",
+        "testDir": "H:/tooltesst/hrm-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "3way",
+    "version": "1.57.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "admin\\leave-management.spec.ts",
+      "file": "admin/leave-management.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Quản lý ngày phép năm - Admin Bigtime",
+          "file": "admin/leave-management.spec.ts",
+          "line": 6,
+          "column": 15,
+          "specs": [
+            {
+              "title": "TC_001 - Thêm phép năm thành công với nhân viên mới",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 24,
+                      "error": {
+                        "message": "Error: browser.newContext: \"deviceScaleFactor\" option is not supported with null \"viewport\"",
+                        "stack": "Error: browser.newContext: \"deviceScaleFactor\" option is not supported with null \"viewport\""
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browser.newContext: \"deviceScaleFactor\" option is not supported with null \"viewport\""
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T09:11:53.411Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "132950efe714707aec29-607a61328dd26f28a5e3",
+              "file": "admin/leave-management.spec.ts",
+              "line": 24,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-12-15T09:11:50.092Z",
+    "duration": 5386.672,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

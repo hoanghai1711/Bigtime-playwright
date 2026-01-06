@@ -1,0 +1,1 @@
+safeClick error: locator.count: Target page, context or browser has been closed

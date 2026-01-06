@@ -1,0 +1,1 @@
+Cleared 1 rows in leave_managements with condition: id NOT LIKE '%testData%'.

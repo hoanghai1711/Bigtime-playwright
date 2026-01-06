@@ -1,0 +1,520 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - generic [ref=e10]: 󰍜
+        - text: 󰼬
+        - generic [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Admin Bigtime - System
+          - generic [ref=e15]:
+            - button "Quản lý" [ref=e16]:
+              - generic [ref=e17]:
+                - generic [ref=e18]: 󰳣
+                - paragraph [ref=e19]: Quản lý
+            - button "Chấm công" [ref=e20]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: 󱤤
+                - paragraph [ref=e23]: Chấm công
+            - button "Lương" [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 󱃣
+                - paragraph [ref=e27]: Lương
+            - button "Cài đặt" [ref=e28]:
+              - generic [ref=e29]:
+                - generic [ref=e30]: 󰣖
+                - paragraph [ref=e31]: Cài đặt
+        - generic [ref=e34] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e40]: admin
+        - button "Badge" [ref=e41] [cursor=pointer]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 󰂜
+            - status "Badge" [ref=e46]
+        - button [ref=e47] [cursor=pointer]:
+          - generic [ref=e49]: 󰊓
+        - button "Đăng xuất" [ref=e50] [cursor=pointer]:
+          - generic [ref=e52]: Đăng xuất
+          - generic [ref=e54]: 󰍂
+    - banner [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e58]: Version 1.2.16
+        - list [ref=e59]:
+          - listitem "English" [ref=e60] [cursor=pointer]:
+            - img [ref=e62]
+          - listitem "Tiếng Việt" [ref=e63] [cursor=pointer]:
+            - img [ref=e65]
+        - button [ref=e66] [cursor=pointer]:
+          - generic [ref=e68]: 󰖙
+    - navigation [ref=e69]:
+      - listbox [ref=e71]:
+        - link "Trung tâm" [ref=e72] [cursor=pointer]:
+          - /url: /dashboard-admin
+          - generic [ref=e74]: 󰨇
+          - generic [ref=e76]: Trung tâm
+        - separator [ref=e77]
+        - generic [ref=e80]: Quản lý nhân viên
+        - link "Nhân viên" [ref=e81] [cursor=pointer]:
+          - /url: /user
+          - generic [ref=e83]: 󰳣
+          - generic [ref=e85]: Nhân viên
+        - separator [ref=e86]
+        - generic [ref=e89]: Thông báo
+        - link "Quản lý thông báo" [ref=e90] [cursor=pointer]:
+          - /url: /notification
+          - generic [ref=e92]: 󱥂
+          - generic [ref=e94]: Quản lý thông báo
+        - link "Danh sách thông báo" [ref=e95] [cursor=pointer]:
+          - /url: /list-notification
+          - generic [ref=e97]: 󰂜
+          - generic [ref=e99]: Danh sách thông báo
+        - separator [ref=e100]
+        - generic [ref=e103]: Đánh giá
+        - link "Loại đánh giá" [ref=e104] [cursor=pointer]:
+          - /url: /evaluation-type
+          - generic [ref=e106]: 󰹕
+          - generic [ref=e108]: Loại đánh giá
+        - link "Tiêu chí đánh giá" [ref=e109] [cursor=pointer]:
+          - /url: /evaluation-criteria
+          - generic [ref=e111]: 󱓶
+          - generic [ref=e113]: Tiêu chí đánh giá
+        - link "Quy trình đánh giá" [ref=e114] [cursor=pointer]:
+          - /url: /evaluation-progress
+          - generic [ref=e116]: 󰂽
+          - generic [ref=e118]: Quy trình đánh giá
+        - link "Danh sách đánh giá" [ref=e119] [cursor=pointer]:
+          - /url: /list-evaluation
+          - generic [ref=e121]: 󱙓
+          - generic [ref=e123]: Danh sách đánh giá
+        - separator [ref=e124]
+        - generic [ref=e127]: Khen thưởng
+        - link "Loại khen thưởng" [ref=e128] [cursor=pointer]:
+          - /url: /reward-type
+          - generic [ref=e130]: 󱆈
+          - generic [ref=e132]: Loại khen thưởng
+        - link "Khen thưởng nhân viên" [ref=e133] [cursor=pointer]:
+          - /url: /reward-user
+          - generic [ref=e135]: 󱆇
+          - generic [ref=e137]: Khen thưởng nhân viên
+        - separator [ref=e138]
+        - generic [ref=e141]: Chung
+        - link "Quản lý ngày phép năm" [ref=e142] [cursor=pointer]:
+          - /url: /leave-management
+          - generic [ref=e144]: 󱐫
+          - generic [ref=e146]: Quản lý ngày phép năm
+        - link "Đơn nghỉ phép" [ref=e147] [cursor=pointer]:
+          - /url: /leave-application
+          - generic [ref=e149]: 󱇗
+          - generic [ref=e151]: Đơn nghỉ phép
+        - link "Quản lý nghỉ lễ" [ref=e152] [cursor=pointer]:
+          - /url: /holiday-management
+          - generic [ref=e154]: 󱝾
+          - generic [ref=e156]: Quản lý nghỉ lễ
+        - link "Đơn thôi việc" [ref=e157] [cursor=pointer]:
+          - /url: /resignation
+          - generic [ref=e159]: 󱙏
+          - generic [ref=e161]: Đơn thôi việc
+        - link "Chi nhánh" [ref=e162] [cursor=pointer]:
+          - /url: /branch
+          - generic [ref=e164]: 󰦑
+          - generic [ref=e166]: Chi nhánh
+        - link "Bộ phận" [ref=e167] [cursor=pointer]:
+          - /url: /department
+          - generic [ref=e169]: 󰠦
+          - generic [ref=e171]: Bộ phận
+        - link "Chức vụ" [ref=e172] [cursor=pointer]:
+          - /url: /position
+          - generic [ref=e174]: 󰗘
+          - generic [ref=e176]: Chức vụ
+        - link "Cấp bậc" [ref=e177] [cursor=pointer]:
+          - /url: /level
+          - generic [ref=e179]: 󰕒
+          - generic [ref=e181]: Cấp bậc
+        - link "Nhóm" [ref=e182] [cursor=pointer]:
+          - /url: /team
+          - generic [ref=e184]: 󰷔
+          - generic [ref=e186]: Nhóm
+        - separator [ref=e187]
+        - generic [ref=e190]: Hợp đồng
+        - link "Hợp đồng" [ref=e191] [cursor=pointer]:
+          - /url: /contract
+          - generic [ref=e193]: 󰃗
+          - generic [ref=e195]: Hợp đồng
+        - link "Điều khoản" [ref=e196] [cursor=pointer]:
+          - /url: /term
+          - generic [ref=e198]: 󰪧
+          - generic [ref=e200]: Điều khoản
+        - link "Thống kê hợp đồng" [ref=e201] [cursor=pointer]:
+          - /url: /contract-statistic
+          - generic [ref=e203]: 󱉣
+          - generic [ref=e205]: Thống kê hợp đồng
+    - main [ref=e206]:
+      - generic [ref=e211]:
+        - generic [ref=e214]:
+          - generic [ref=e216]: Quản lý ngày phép năm
+          - button "Làm mới" [ref=e217] [cursor=pointer]:
+            - generic [ref=e218]:
+              - generic [ref=e219]: 󱎠
+              - text: Làm mới
+          - button "Thêm" [ref=e220] [cursor=pointer]:
+            - generic [ref=e221]:
+              - generic [ref=e222]: 󰐕
+              - text: Thêm
+          - button [ref=e223] [cursor=pointer]:
+            - generic [ref=e225]: 󱪤
+        - generic [ref=e228]:
+          - generic [ref=e233]:
+            - generic: Tên nhân viên
+            - textbox "Tên nhân viên Tên nhân viên" [ref=e235]
+          - generic [ref=e240]:
+            - generic: Năm
+            - spinbutton "Năm Năm" [ref=e242]
+          - combobox [ref=e246] [cursor=pointer]:
+            - generic [ref=e247]:
+              - generic: Trạng thái
+              - generic [ref=e248]:
+                - textbox "Open"
+            - generic [ref=e250]: 󰍝
+          - button "Tìm kiếm" [ref=e252] [cursor=pointer]:
+            - generic [ref=e253]:
+              - generic [ref=e254]: 󰒊
+              - text: Tìm kiếm
+          - button "Xóa" [ref=e256] [cursor=pointer]:
+            - generic [ref=e257]:
+              - generic [ref=e258]: 󰅖
+              - text: Xóa
+        - generic [ref=e259]:
+          - table [ref=e261]:
+            - rowgroup [ref=e262]:
+              - row "# Tên nhân viên Năm Số ngày nghỉ phép Ngày đã sử dụng Trạng thái Hành động" [ref=e263]:
+                - columnheader "#" [ref=e264]:
+                  - generic [ref=e265]: "#"
+                - columnheader "Tên nhân viên" [ref=e266]:
+                  - generic [ref=e267]: Tên nhân viên
+                - columnheader "Năm" [ref=e268]:
+                  - generic [ref=e269]: Năm
+                - columnheader "Số ngày nghỉ phép" [ref=e270]:
+                  - generic [ref=e271]: Số ngày nghỉ phép
+                - columnheader "Ngày đã sử dụng" [ref=e272]:
+                  - generic [ref=e273]: Ngày đã sử dụng
+                - columnheader "Trạng thái" [ref=e274]:
+                  - generic [ref=e275]: Trạng thái
+                - columnheader "Hành động" [ref=e276]:
+                  - generic [ref=e277]: Hành động
+            - rowgroup [ref=e278]:
+              - row "1 Quản lý bộ phận nhân sự 2029 12 0 Chờ duyệt 󰇙 Thao tác" [ref=e279]:
+                - cell "1" [ref=e280]
+                - cell "Quản lý bộ phận nhân sự" [ref=e281]
+                - cell "2029" [ref=e282]
+                - cell "12" [ref=e283]
+                - cell "0" [ref=e284]
+                - cell "Chờ duyệt" [ref=e285]:
+                  - generic [ref=e287]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e288]:
+                  - button "󰇙 Thao tác" [ref=e289] [cursor=pointer]:
+                    - generic [ref=e290]:
+                      - generic [ref=e291]: 󰇙
+                      - text: Thao tác
+              - row "2 Nhân viên nhân sự 2029 12 0 Chờ duyệt 󰇙 Thao tác" [ref=e292]:
+                - cell "2" [ref=e293]
+                - cell "Nhân viên nhân sự" [ref=e294]
+                - cell "2029" [ref=e295]
+                - cell "12" [ref=e296]
+                - cell "0" [ref=e297]
+                - cell "Chờ duyệt" [ref=e298]:
+                  - generic [ref=e300]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e301]:
+                  - button "󰇙 Thao tác" [ref=e302] [cursor=pointer]:
+                    - generic [ref=e303]:
+                      - generic [ref=e304]: 󰇙
+                      - text: Thao tác
+              - row "3 Nhân viên nhân sự 2040 15 0 Mới 󰇙 Thao tác" [ref=e305]:
+                - cell "3" [ref=e306]
+                - cell "Nhân viên nhân sự" [ref=e307]
+                - cell "2040" [ref=e308]
+                - cell "15" [ref=e309]
+                - cell "0" [ref=e310]
+                - cell "Mới" [ref=e311]:
+                  - generic [ref=e313]: Mới
+                - cell "󰇙 Thao tác" [ref=e314]:
+                  - button "󰇙 Thao tác" [ref=e315] [cursor=pointer]:
+                    - generic [ref=e316]:
+                      - generic [ref=e317]: 󰇙
+                      - text: Thao tác
+              - row "4 Nhân viên nhân sự 2027 10 0 Chờ duyệt 󰇙 Thao tác" [ref=e318]:
+                - cell "4" [ref=e319]
+                - cell "Nhân viên nhân sự" [ref=e320]
+                - cell "2027" [ref=e321]
+                - cell "10" [ref=e322]
+                - cell "0" [ref=e323]
+                - cell "Chờ duyệt" [ref=e324]:
+                  - generic [ref=e326]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e327]:
+                  - button "󰇙 Thao tác" [ref=e328] [cursor=pointer]:
+                    - generic [ref=e329]:
+                      - generic [ref=e330]: 󰇙
+                      - text: Thao tác
+              - row "5 Nhân viên nhân sự 2028 13 0 Chờ duyệt 󰇙 Thao tác" [ref=e331]:
+                - cell "5" [ref=e332]
+                - cell "Nhân viên nhân sự" [ref=e333]
+                - cell "2028" [ref=e334]
+                - cell "13" [ref=e335]
+                - cell "0" [ref=e336]
+                - cell "Chờ duyệt" [ref=e337]:
+                  - generic [ref=e339]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e340]:
+                  - button "󰇙 Thao tác" [ref=e341] [cursor=pointer]:
+                    - generic [ref=e342]:
+                      - generic [ref=e343]: 󰇙
+                      - text: Thao tác
+              - row "6 Nhân viên nhân sự 2025 10 0 Chờ duyệt 󰇙 Thao tác" [ref=e344]:
+                - cell "6" [ref=e345]
+                - cell "Nhân viên nhân sự" [ref=e346]
+                - cell "2025" [ref=e347]
+                - cell "10" [ref=e348]
+                - cell "0" [ref=e349]
+                - cell "Chờ duyệt" [ref=e350]:
+                  - generic [ref=e352]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e353]:
+                  - button "󰇙 Thao tác" [ref=e354] [cursor=pointer]:
+                    - generic [ref=e355]:
+                      - generic [ref=e356]: 󰇙
+                      - text: Thao tác
+              - row "7 Phan Thành Long 2028 13 0 Mới 󰇙 Thao tác" [ref=e357]:
+                - cell "7" [ref=e358]
+                - cell "Phan Thành Long" [ref=e359]
+                - cell "2028" [ref=e360]
+                - cell "13" [ref=e361]
+                - cell "0" [ref=e362]
+                - cell "Mới" [ref=e363]:
+                  - generic [ref=e365]: Mới
+                - cell "󰇙 Thao tác" [ref=e366]:
+                  - button "󰇙 Thao tác" [ref=e367] [cursor=pointer]:
+                    - generic [ref=e368]:
+                      - generic [ref=e369]: 󰇙
+                      - text: Thao tác
+              - row "8 Phan Thành Long 2025 10 0 Chờ duyệt 󰇙 Thao tác" [ref=e370]:
+                - cell "8" [ref=e371]
+                - cell "Phan Thành Long" [ref=e372]
+                - cell "2025" [ref=e373]
+                - cell "10" [ref=e374]
+                - cell "0" [ref=e375]
+                - cell "Chờ duyệt" [ref=e376]:
+                  - generic [ref=e378]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e379]:
+                  - button "󰇙 Thao tác" [ref=e380] [cursor=pointer]:
+                    - generic [ref=e381]:
+                      - generic [ref=e382]: 󰇙
+                      - text: Thao tác
+              - row "9 Phan Thành Long 2026 15 0 Chờ duyệt 󰇙 Thao tác" [ref=e383]:
+                - cell "9" [ref=e384]
+                - cell "Phan Thành Long" [ref=e385]
+                - cell "2026" [ref=e386]
+                - cell "15" [ref=e387]
+                - cell "0" [ref=e388]
+                - cell "Chờ duyệt" [ref=e389]:
+                  - generic [ref=e391]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e392]:
+                  - button "󰇙 Thao tác" [ref=e393] [cursor=pointer]:
+                    - generic [ref=e394]:
+                      - generic [ref=e395]: 󰇙
+                      - text: Thao tác
+              - row "10 Phan Thành Long 2035 15 0 Chờ duyệt 󰇙 Thao tác" [ref=e396]:
+                - cell "10" [ref=e397]
+                - cell "Phan Thành Long" [ref=e398]
+                - cell "2035" [ref=e399]
+                - cell "15" [ref=e400]
+                - cell "0" [ref=e401]
+                - cell "Chờ duyệt" [ref=e402]:
+                  - generic [ref=e404]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e405]:
+                  - button "󰇙 Thao tác" [ref=e406] [cursor=pointer]:
+                    - generic [ref=e407]:
+                      - generic [ref=e408]: 󰇙
+                      - text: Thao tác
+              - row "11 Phan Thành Long 2027 10 0 Chờ duyệt 󰇙 Thao tác" [ref=e409]:
+                - cell "11" [ref=e410]
+                - cell "Phan Thành Long" [ref=e411]
+                - cell "2027" [ref=e412]
+                - cell "10" [ref=e413]
+                - cell "0" [ref=e414]
+                - cell "Chờ duyệt" [ref=e415]:
+                  - generic [ref=e417]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e418]:
+                  - button "󰇙 Thao tác" [ref=e419] [cursor=pointer]:
+                    - generic [ref=e420]:
+                      - generic [ref=e421]: 󰇙
+                      - text: Thao tác
+              - row "12 Phan Thành Long 2029 12 0 Chờ duyệt 󰇙 Thao tác" [ref=e422]:
+                - cell "12" [ref=e423]
+                - cell "Phan Thành Long" [ref=e424]
+                - cell "2029" [ref=e425]
+                - cell "12" [ref=e426]
+                - cell "0" [ref=e427]
+                - cell "Chờ duyệt" [ref=e428]:
+                  - generic [ref=e430]: Chờ duyệt
+                - cell "󰇙 Thao tác" [ref=e431]:
+                  - button "󰇙 Thao tác" [ref=e432] [cursor=pointer]:
+                    - generic [ref=e433]:
+                      - generic [ref=e434]: 󰇙
+                      - text: Thao tác
+          - generic [ref=e436]:
+            - generic [ref=e437]: Tổng
+            - text: 12,
+            - generic [ref=e438]: Hiển thị
+            - combobox [ref=e441] [cursor=pointer]:
+              - generic [ref=e443]:
+                - generic [ref=e445]: "20"
+                - textbox "Open": "20"
+              - generic [ref=e447]: 󰍝
+            - navigation "Pagination Navigation" [ref=e448]:
+              - list [ref=e449]:
+                - listitem [ref=e450]:
+                  - button "Previous page" [disabled]:
+                    - generic:
+                      - generic: 󰅁
+                - listitem [ref=e451]:
+                  - button "Page 1, Current page" [disabled]:
+                    - generic: "1"
+                - listitem [ref=e452]:
+                  - button "Next page" [disabled]:
+                    - generic:
+                      - generic: 󰅂
+  - generic:
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - dialog:
+      - generic [ref=e455]:
+        - generic [ref=e456]: Thêm phép năm
+        - generic [ref=e461]:
+          - generic [ref=e463]:
+            - alert [ref=e466]:
+              - generic [ref=e468]: 󰀨
+              - list [ref=e470]:
+                - listitem [ref=e471]: Nghỉ phép năm đã tồn tại.
+            - generic [ref=e472]:
+              - generic [ref=e480]:
+                - generic [ref=e482]: 󰃳
+                - textbox "Năm ※ Năm ※" [ref=e484]: "2028"
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Năm ※
+              - generic [ref=e488]:
+                - spinbutton "Số ngày nghỉ phép ※ Số ngày nghỉ phép ※" [ref=e491]: "13"
+                - generic:
+                  - generic:
+                    - generic: Số ngày nghỉ phép ※
+              - combobox [ref=e495] [cursor=pointer]:
+                - generic [ref=e497]:
+                  - generic [ref=e499]: Chờ duyệt
+                  - textbox "Open": "1"
+                - generic [ref=e501]: 󰍝
+                - generic:
+                  - generic:
+                    - generic: Trạng thái ※
+              - generic [ref=e506]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: 󰃳
+                      - generic:
+                        - textbox "Ngày tạo Ngày tạo" [disabled]: 31-12-2025 11:26
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic: Ngày tạo
+              - generic [ref=e507]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: 󰻘
+                      - generic:
+                        - generic:
+                          - textbox "Người tạo Người tạo" [disabled]: admin
+                      - generic:
+                        - generic:
+                          - generic: Người tạo
+          - tablist [ref=e509]:
+            - generic [ref=e511]:
+              - tab "Nhân viên" [selected] [ref=e512] [cursor=pointer]:
+                - generic [ref=e513]: Nhân viên
+              - tab "Bộ phận/Nhóm" [ref=e514] [cursor=pointer]:
+                - generic [ref=e515]: Bộ phận/Nhóm
+              - button "Thêm" [ref=e518] [cursor=pointer]:
+                - generic [ref=e519]:
+                  - generic [ref=e520]: 󰐕
+                  - text: Thêm
+          - generic [ref=e525]:
+            - table [ref=e527]:
+              - rowgroup [ref=e528]:
+                - row "Mã nhân viên Tên nhân viên Hành động" [ref=e529]:
+                  - columnheader "Mã nhân viên" [ref=e530]:
+                    - generic [ref=e532]: Mã nhân viên
+                  - columnheader "Tên nhân viên" [ref=e533]:
+                    - generic [ref=e535]: Tên nhân viên
+                  - columnheader "Hành động" [ref=e536]:
+                    - generic [ref=e538]: Hành động
+              - rowgroup [ref=e539]:
+                - row "123 Nhân viên nhân sự" [ref=e540]:
+                  - cell "123" [ref=e541]
+                  - cell "Nhân viên nhân sự" [ref=e542]
+                  - cell [ref=e543]:
+                    - button [ref=e544] [cursor=pointer]:
+                      - generic [ref=e546]: 󰅖
+            - separator [ref=e547]
+            - generic [ref=e548]:
+              - generic [ref=e549]:
+                - generic [ref=e550]: Hiển thị
+                - combobox [ref=e553] [cursor=pointer]:
+                  - generic [ref=e555]:
+                    - generic [ref=e557]: "10"
+                    - textbox "Open": "10"
+                  - generic [ref=e559]: 󰍝
+              - generic [ref=e561]: 1-1 of 1
+              - navigation "Pagination Navigation" [ref=e563]:
+                - list [ref=e564]:
+                  - listitem [ref=e565]:
+                    - button "First page" [disabled]:
+                      - generic:
+                        - generic: 󰘀
+                  - listitem [ref=e566]:
+                    - button "Previous page" [disabled]:
+                      - generic:
+                        - generic: 󰅁
+                  - listitem [ref=e567]:
+                    - button "Next page" [disabled]:
+                      - generic:
+                        - generic: 󰅂
+                  - listitem [ref=e568]:
+                    - button "Last page" [disabled]:
+                      - generic:
+                        - generic: 󰘁
+        - generic [ref=e569]:
+          - button "Lưu" [active] [ref=e570] [cursor=pointer]:
+            - generic [ref=e571]:
+              - generic [ref=e572]: 󰄬
+              - text: Lưu
+          - button "Hủy" [ref=e573] [cursor=pointer]:
+            - generic [ref=e574]:
+              - generic [ref=e575]: 󰅖
+              - text: Hủy
+    - tooltip
+    - tooltip
+```

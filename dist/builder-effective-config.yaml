@@ -1,0 +1,9 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.automation.tool
+productName: AutoTestTool
+win:
+  target: nsis
+files: []
+electronVersion: 39.2.6

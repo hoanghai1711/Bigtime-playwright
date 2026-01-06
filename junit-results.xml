@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="5.386672">
+<testsuite name="admin\leave-management.spec.ts" timestamp="2025-12-15T09:11:51.812Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.024" errors="0">
+<testcase name="Quản lý ngày phép năm - Admin Bigtime › TC_001 - Thêm phép năm thành công với nhân viên mới" classname="admin\leave-management.spec.ts" time="0.024">
+<failure message="leave-management.spec.ts:24:7 TC_001 - Thêm phép năm thành công với nhân viên mới" type="FAILURE">
+<![CDATA[  [chromium] › admin\leave-management.spec.ts:24:7 › Quản lý ngày phép năm - Admin Bigtime › TC_001 - Thêm phép năm thành công với nhân viên mới 
+
+    Error: browser.newContext: "deviceScaleFactor" option is not supported with null "viewport"
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

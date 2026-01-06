@@ -1,0 +1,1 @@
+Cleared 10 rows in leave_managements with condition: year IN ('2027', '2028', '2029', '2040').

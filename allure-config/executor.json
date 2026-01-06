@@ -1,0 +1,9 @@
+{
+  "name": "Electron Automation Tool",
+  "type": "electron",
+  "url": "http://localhost",
+  "buildName": "Build #${BUILD_NUMBER}",
+  "buildUrl": "",
+  "reportUrl": "",
+  "reportName": "Allure Report"
+}

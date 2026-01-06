@@ -1,0 +1,50 @@
+DB Error: Error: Table 'bigtime_tpd_upgrade.leave_management' doesn't exist
+    at PromiseConnection.execute (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\mysql2\lib\promise\connection.js:47:22)
+    at executeQuery (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\db\core\DBConnection.ts:25:33)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at clearTable (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\db\core\DBUtils.ts:31:28)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\tests\leave\leave-management.spec.ts:21:5
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:311:11
+    at TimeoutManager.withRunnable (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\timeoutManager.js:67:14)
+    at TestInfoImpl._runWithTimeout (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:309:7)
+    at FixtureRunner.resolveParametersAndRunFunction (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\fixtureRunner.js:228:5)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:478:11
+    at TestInfoImpl._runAsStep (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:300:7)
+    at WorkerMain._runEachHooksForSuites (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:477:9)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:314:9
+    at TestInfoImpl._runAsStep (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:300:7)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:310:7
+    at WorkerMain._runTest (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:295:5)
+    at WorkerMain.runTestGroup (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:199:11)
+    at process.<anonymous> (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\common\process.js:65:22) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: "DELETE FROM leave_management WHERE year IN ('2027', '2028', '2029', '2040')",
+  sqlState: '42S02',
+  sqlMessage: "Table 'bigtime_tpd_upgrade.leave_management' doesn't exist"
+}
+Failed to clear table leave_management: Error: Table 'bigtime_tpd_upgrade.leave_management' doesn't exist
+    at PromiseConnection.execute (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\mysql2\lib\promise\connection.js:47:22)
+    at executeQuery (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\db\core\DBConnection.ts:25:33)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at clearTable (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\db\core\DBUtils.ts:31:28)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\tests\leave\leave-management.spec.ts:21:5
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:311:11
+    at TimeoutManager.withRunnable (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\timeoutManager.js:67:14)
+    at TestInfoImpl._runWithTimeout (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:309:7)
+    at FixtureRunner.resolveParametersAndRunFunction (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\fixtureRunner.js:228:5)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:478:11
+    at TestInfoImpl._runAsStep (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:300:7)
+    at WorkerMain._runEachHooksForSuites (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:477:9)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:314:9
+    at TestInfoImpl._runAsStep (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\testInfo.js:300:7)
+    at H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:310:7
+    at WorkerMain._runTest (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:295:5)
+    at WorkerMain.runTestGroup (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\worker\workerMain.js:199:11)
+    at process.<anonymous> (H:\hrmauto\tooltesst\hrm-automation\hrm-automation\node_modules\playwright\lib\common\process.js:65:22) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: "DELETE FROM leave_management WHERE year IN ('2027', '2028', '2029', '2040')",
+  sqlState: '42S02',
+  sqlMessage: "Table 'bigtime_tpd_upgrade.leave_management' doesn't exist"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Test Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Assertion.*",
+    "traceRegex": ".*"
+  },
+  {
+    "name": "Test Errors",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*Timeout.*|.*Network.*|.*Element not found.*"
+  },
+  {
+    "name": "Skipped Tests",
+    "matchedStatuses": ["skipped"],
+    "messageRegex": ".*"
+  },
+  {
+    "name": "Product Defects",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*BUG.*|.*Defect.*|.*Lỗi.*"
+  }
+]
