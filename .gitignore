@@ -6,3 +6,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+# File: .gitignore
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+secrets/
+config/
+credentials/
