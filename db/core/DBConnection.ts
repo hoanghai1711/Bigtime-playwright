@@ -52,4 +52,4 @@ export async function executeQuery(sql: string, params: any[] = []) {
       await conn.end();
     }
   }
-}
+}//đâsada
