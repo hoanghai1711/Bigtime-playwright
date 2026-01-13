@@ -6,7 +6,8 @@
     "generate": "node generate-report.js",
     "predeploy": "rimraf allure-results",
     "deploy": "powershell ./deploy.ps1",
-    "report": "npm run generate && npm run deploy"
+    "report": "npm run generate && npm run deploy",
+    "test:ci": "CI=true playwright test --reporter=html,line"
   },
   "devDependencies": {
     "@playwright/test": "^1.53.0",

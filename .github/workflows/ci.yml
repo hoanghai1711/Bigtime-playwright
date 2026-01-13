@@ -1,3 +1,4 @@
+# File: .github/workflows/ci.yml
 name: HRM Automation CI/CD
 
 on:
@@ -5,8 +6,6 @@ on:
     branches: [develop, main]
   pull_request:
     branches: [main]
-  schedule:
-    - cron: '0 8 * * *' # Daily at 8AM UTC (3PM Vietnam)
   workflow_dispatch:
 
 jobs:
@@ -28,30 +27,31 @@ jobs:
           echo "test_prefix=${RUN_PREFIX}" >> $GITHUB_OUTPUT
           echo "test_year=2045" >> $GITHUB_OUTPUT
 
-          echo "Test Prefix: ${RUN_PREFIX}"
-          echo "Test Year: 2045"
-
   run-tests:
     needs: setup
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
     env:
+      # TẤT CẢ biến môi trường từ GitHub Secrets
+      CI: true
+      NODE_ENV: test
+      
       URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
-
+      
       DB_HOST: ${{ secrets.DB_HOST }}
       DB_PORT: ${{ secrets.DB_PORT }}
       DB_NAME: ${{ secrets.DB_NAME }}
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
+      
       ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
       EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
       MANAGER_USERNAME: ${{ secrets.MANAGER_USERNAME }}
       MANAGER_PASSWORD: ${{ secrets.MANAGER_PASSWORD }}
-
+      
       TEST_PREFIX: ${{ needs.setup.outputs.test_prefix }}
       TEST_YEAR: ${{ needs.setup.outputs.test_year }}
 
@@ -59,27 +59,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
-
-      - name: Setup Java (for Allure)
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
 
       - name: Install dependencies
         run: npm ci
@@ -87,82 +71,26 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Install Allure CLI
-        run: npm install -g allure-commandline
-
-      - name: Test database connection
+      - name: Run tests
         run: |
-          sudo apt-get update
-          sudo apt-get install -y mysql-client
-          mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p"$DB_PASSWORD" -e "SELECT 1;" $DB_NAME || true
-
-      - name: Run Login tests
-        run: |
-          npx playwright test tests/login.spec.ts \
-            --workers=1 \
-            --timeout=60000 || true
-
-      - name: Run Employee tests
-        run: |
-          npx playwright test tests/employee.spec.ts \
+          echo "Starting tests in CI mode..."
+          echo "Environment variables are set via GitHub Secrets"
+          
+          # Chạy tests với continue-on-error
+          npx playwright test \
+            --reporter=line,html \
             --workers=1 \
             --timeout=120000 \
-            --grep="Create employee" || true
+            --project=chromium \
+            || echo "Tests completed"
 
-      - name: Run Leave tests
-        run: |
-          npx playwright test tests/leave/ \
-            --workers=1 \
-            --timeout=180000 || true
-
-      - name: Run API tests
-        run: |
-          npx playwright test tests/api/ \
-            --workers=1 \
-            --timeout=60000 || true
-
-      - name: Generate Allure Report
-        if: always()
-        run: |
-          if [ -d "allure-results" ]; then
-            allure generate allure-results -o allure-report --clean
-          else
-            echo "No allure-results found"
-          fi
-
-      - name: Upload test artifacts
+      - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ github.run_id }}
           path: |
-            allure-report/
-            allure-results/
             playwright-report/
             test-results/
             screenshots/
           retention-days: 14
-
-  report:
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [setup, run-tests]
-
-    steps:
-      - name: Create summary report
-        run: |
-          echo "# HRM Automation Test Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Run ID:** ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "## Test Configuration" >> $GITHUB_STEP_SUMMARY
-          echo "- Test Prefix: ${{ needs.setup.outputs.test_prefix }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Test Year: ${{ needs.setup.outputs.test_year }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "##  Allure Report" >> $GITHUB_STEP_SUMMARY
-          echo "Download **allure-report** artifact and open index.html" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "---" >> $GITHUB_STEP_SUMMARY
-          echo "*Generated automatically by GitHub Actions*" >> $GITHUB_STEP_SUMMARY
