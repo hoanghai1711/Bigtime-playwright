@@ -1,109 +1,101 @@
-name: HRM Automation CI/CD
+# ================================
+# Workflow name hiển thị trên GitHub Actions
+# ================================
+name: Playwright Tests
 
+# ================================
+# Quyền cần thiết cho workflow
+# - contents: push code / commit
+# - pages: deploy GitHub Pages (Allure report)
+# - id-token: dùng cho auth (chuẩn GitHub Actions mới)
+# ================================
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# ================================
+# Điều kiện trigger workflow
+# ================================
 on:
+  # schedule:
+  #   - cron: "0 1 * * *" 
+  # Chạy theo lịch (đang tắt)
+  # 1:00 UTC = 8:00 sáng giờ VN
+
   push:
-    branches: [main]
+    # Chạy khi push code lên main hoặc master
+    branches: [main, master]
+
   pull_request:
-    branches: [main]
-  workflow_dispatch:
+    # Chạy khi tạo / update PR vào main hoặc master
+    branches: [main, master]
+
+# ================================
+# Concurrency
+# - Chỉ cho phép 1 job Playwright chạy tại 1 thời điểm
+# - Nếu có job mới -> job cũ sẽ bị cancel
+# ================================
+concurrency:
+  group: playwright-e2e
+  cancel-in-progress: true
 
 jobs:
-  playwright-tests:
-    name: 🧪 Playwright Tests
-    runs-on: ubuntu-latest
+  test:
+    # Timeout tối đa của job (tránh treo CI vô hạn)
+    timeout-minutes: 250
 
+    # Môi trường chạy
+    runs-on: ubuntu-latest
     env:
-      CI: true
-      NODE_ENV: test
-      URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
-      DB_HOST: mock
-      DB_PORT: 3306
-      DB_NAME: mock
-      DB_USER: mock
-      DB_PASSWORD: mock
-      ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
-      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-      EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
-      EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
-      MANAGER_USERNAME: ${{ secrets.MANAGER_USERNAME }}
-      MANAGER_PASSWORD: ${{ secrets.MANAGER_PASSWORD }}
+      ENVIRONMENT: BigTime Pre Version 1.0.14
+      AUTHOR: hoanghai
+      PLATFORM: Ubuntu
+      BROWSER: Chromium, Edge, Firefox
 
     steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+    
+      # Checkout source code từ repository
+      - uses: actions/checkout@v4
 
-      - name: ⎔ Setup Node.js
-        uses: actions/setup-node@v4
+   
+      # Setup Node.js environment
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: 23.9.0
 
-      - name: 📦 Install dependencies
+      # Cache npm để tăng tốc CI
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Cài dependencies đúng version theo package-lock.json
+      - name: Install dependencies
         run: npm ci
 
-      - name: 📦 Install Allure dependencies
-        run: npm install --save-dev allure-playwright
+      # Cài browser binaries cho Playwright
+      # --with-deps: cài thêm system dependencies cho Linux
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-      - name: 🎭 Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+      # Generate Allure environment.properties
+      - name: Generate Allure environment
+        run: npx ts-node scripts/generate-env.ts
 
-      - name: 📦 Install Allure CLI
-        run: npm install -g allure-commandline
 
-      - name: ▶ Run Playwright tests
-        run: |
-          npx playwright test \
-            --project=chromium \
-            --workers=1 \
-            --timeout=120000 \
-            --reporter=line,html,allure-playwright
-
-      - name: 📊 Generate Allure report
-        if: always()
-        run: |
-          if [ -d "allure-results" ]; then
-            allure generate allure-results --clean -o allure-report
-            echo "✅ Allure report generated"
-            # Kiểm tra nội dung report
-            ls -la allure-report/
-          else
-            echo "❌ No test results found"
-            ls -la
-          fi
-
-      - name: 📦 Upload test artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: allure-report/
-          retention-days: 7
-
-  deploy-report:
-    name: 🚀 Deploy Report
-    needs: playwright-tests
-    runs-on: ubuntu-latest
-    # Chỉ deploy khi test job thành công (thay vì always)
-    if: needs.playwright-tests.result == 'success' || needs.playwright-tests.result == 'failure'
-
-    steps:
-      - name: 📥 Download test artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-report
-
-      - name: 🔍 Check downloaded files
-        run: |
-          echo "📁 Current directory structure:"
-          ls -la
-          echo "📁 allure-report directory:"
-          ls -la allure-report/
-
-      - name: 🌍 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
-          # Để deploy vào thư mục gốc của GitHub Pages
-          destination_dir: ./
-          keep_files: false
+      # Chạy Playwright tests
+      # Toàn bộ config lấy từ GitHub Secrets
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
+          EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
+          EMPLOYEE2_USERNAME: ${{ secrets.EMPLOYEE2_USERNAME }}
+          EMPLOYEE2_PASSWORD: ${{ secrets.EMPLOYEE2_PASSWORD }}
+          MANAGER_TEAM_USERNAME: ${{ secrets.MANAGER_TEAM_USERNAME }}
+          MANAGER_TEAM_PASSWORD: ${{ secrets.MANAGER_TEAM_PASSWORD }}
