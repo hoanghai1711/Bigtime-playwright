@@ -19,9 +19,9 @@ const mockResult = {
 };
 
 export async function getConnection() {
-  // 👉 CI MODE: không dùng DB thật
+
   if (process.env.CI === 'true') {
-    console.warn('⚠️ CI mode – using mock database');
+    console.warn(' CI mode – using mock database');
 
     return {
       execute: async () => [mockResult],
