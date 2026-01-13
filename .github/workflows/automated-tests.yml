@@ -1,39 +1,71 @@
-# .github/workflows/hrm-server-ci.yml
-name: HRM Server Tests (Real Database)
+name: HRM Automation Tests v4
 
 on:
   push:
-    branches: [main, develop]
+    branches: [develop, main, feature/**]
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 8 * * *'  # 8AM hàng ngày
-  workflow_dispatch:  # Cho phép chạy thủ công
+    - cron: '0 8 * * *'  # Daily at 2AM
+
+env:
+  NODE_ENV: test
+  URL_BIGTIME: https://bigtime-stg-2.bigapptech.vn/login
+  
+  # Database - using GitHub Secrets
+  DB_HOST: 160.187.38.101
+  DB_PORT: 3306
+  DB_NAME: testing_staging_tpd
+  DB_USER: bigtime_tpd_upgrade_user
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  
+  # Test Users - using GitHub Secrets
+  ADMIN_USERNAME: info@bigapptech.vn
+  ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+  EMPLOYEE_USERNAME: nhansu@gmail.com
+  EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
+  MANAGER_USERNAME: quanlynhansu@gmail.com
+  MANAGER_PASSWORD: ${{ secrets.MANAGER_PASSWORD }}
 
 jobs:
-  test-with-real-db:
+  setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 45  
-    
-    
-    
-    env:
-      NODE_ENV: test
-      URL_BIGTIME: https://bigtime-stg-2.bigapptech.vn/login
-      DB_HOST: 160.187.38.101
-      DB_PORT: 3306
-      DB_NAME: testing_staging_tpd
-      DB_USER: bigtime_tpd_upgrade_user
-      DB_PASSWORD: QO3AgAR258
-      ADMIN_USERNAME: info@bigapptech.vn
-      ADMIN_PASSWORD: 12345678@Bat
+    outputs:
+      test_prefix: ${{ steps.setup.outputs.test_prefix }}
     
     steps:
-    - name: 📥 Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name:  Generate test identifiers
+      id: setup
+      run: |
+        RUN_PREFIX="test_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+        echo "test_prefix=${RUN_PREFIX}" >> $GITHUB_OUTPUT
+        echo "TEST_PREFIX=${RUN_PREFIX}" >> $GITHUB_ENV
+
+  run-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    
+    steps:
+    - name:  Checkout code
+      uses: actions/checkout@v4
+    
+    - name:  Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.npm
+          node_modules
+          ~/.cache/ms-playwright
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
     
     - name: ⎔ Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'npm'
@@ -41,56 +73,84 @@ jobs:
     - name:  Install dependencies
       run: npm ci
     
-    - name:  Install Playwright browsers
+    - name:  Install Playwright
       run: npx playwright install --with-deps chromium
     
-    - name:  Test database connection
+    - name:  Run all tests
+      env:
+        TEST_PREFIX: ${{ needs.setup.outputs.test_prefix }}
+        TEST_RUN_ID: ${{ github.run_id }}
       run: |
-        # Kiểm tra kết nối đến database server
-        echo "Testing connection to database server..."
+        echo "Test Prefix: ${TEST_PREFIX}"
+        echo "Run ID: ${TEST_RUN_ID}"
         
-        # Cài mysql client để test
-        sudo apt-get update
-        sudo apt-get install -y mysql-client
+        # Chạy tests với data isolation
+        npm test 2>&1 | tee test-output.log
         
-        # Test connection (ẩn password)
-        mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD -e "SELECT 1;" $DB_NAME && echo "✅ Database connection successful"
-        
-        # Kiểm tra có thể đọc/ghi không
-        mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD $DB_NAME -e "SHOW TABLES LIMIT 5;"
-    
-    - name:  Start application (nếu cần)
-      run: |
-        # Nếu ứng dụng của bạn cần start server
-        # npm start &
-        # sleep 15
-        # curl -f http://localhost:3000/health || true
-        echo "Skipping app start - using existing server"
-    
-    - name:  Run tests with real database
-      run: |
-        echo "Running tests against real database..."
-        echo "Database: $DB_HOST:$DB_PORT/$DB_NAME"
-        
-        # Test với data isolation
-        export TEST_RUN_ID="ci_${{ github.run_id }}_${{ github.run_number }}"
-        export TEST_DATE_PREFIX=$(date +%m%d)
-        
-        # Chạy tests tuần tự để tránh data conflict
-        npx playwright test tests/login.spec.ts --reporter=line --workers=1
-        npx playwright test tests/employee.spec.ts --reporter=line --workers=1
-        npx playwright test tests/leave/ --reporter=line --workers=1
-        
-        # Hoặc chạy tất cả với retry
-        # npx playwright test --reporter=html --workers=2 --retries=2
+        # Hoặc chạy riêng từng loại test
+        # npx playwright test --reporter=html,line --workers=2
     
     - name:  Upload test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: test-results-${{ github.run_id }}
+        name: playwright-report-${{ github.run_id }}
         path: |
           playwright-report/
           test-results/
-          screenshots/
         retention-days: 30
+    
+    - name:  Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: failure-screenshots-${{ github.run_id }}
+        path: screenshots/
+        retention-days: 30
+    
+    - name:  Upload test logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs-${{ github.run_id }}
+        path: |
+          test-output.log
+          server.log
+        retention-days: 14
+
+  cleanup:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: run-tests
+    
+    steps:
+    - name:  Cleanup test data in database
+      env:
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: |
+        # Cleanup test data từ database
+        echo "Cleaning up test data with prefix: ${{ needs.setup.outputs.test_prefix }}"
+        
+        # Cài mysql client
+        sudo apt-get update
+        sudo apt-get install -y mysql-client
+        
+        # Xóa test data cũ
+        mysql -h ${{ env.DB_HOST }} -P ${{ env.DB_PORT }} -u ${{ env.DB_USER }} -p$DB_PASSWORD ${{ env.DB_NAME }} << EOF
+        DELETE FROM users WHERE code LIKE '${{ needs.setup.outputs.test_prefix }}_%';
+        DELETE FROM leave_managements WHERE year > 2026 AND created_at > DATE_SUB(NOW(), INTERVAL 2 HOUR);
+        EOF 2>/dev/null || true
+    
+    - name:  Create summary report
+      if: always()
+      run: |
+        echo "# Test Results Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Workflow:** ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Run ID:** ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "- Playwright Report" >> $GITHUB_STEP_SUMMARY
+        echo "- Test Screenshots (if any)" >> $GITHUB_STEP_SUMMARY
+        echo "- Test Logs" >> $GITHUB_STEP_SUMMARY
