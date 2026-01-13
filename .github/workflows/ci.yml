@@ -5,36 +5,24 @@ name: Playwright Tests
 
 # ================================
 # Quyền cần thiết cho workflow
-# - contents: push code / commit
-# - pages: deploy GitHub Pages (Allure report)
-# - id-token: dùng cho auth (chuẩn GitHub Actions mới)
 # ================================
 permissions:
   contents: write
   pages: write
   id-token: write
 
+
 # ================================
 # Điều kiện trigger workflow
 # ================================
 on:
-  # schedule:
-  #   - cron: "0 1 * * *" 
-  # Chạy theo lịch (đang tắt)
-  # 1:00 UTC = 8:00 sáng giờ VN
-
   push:
-    # Chạy khi push code lên main hoặc master
     branches: [main, master]
-
   pull_request:
-    # Chạy khi tạo / update PR vào main hoặc master
     branches: [main, master]
 
 # ================================
-# Concurrency
-# - Chỉ cho phép 1 job Playwright chạy tại 1 thời điểm
-# - Nếu có job mới -> job cũ sẽ bị cancel
+# Concurrency control
 # ================================
 concurrency:
   group: playwright-e2e
@@ -42,11 +30,9 @@ concurrency:
 
 jobs:
   test:
-    # Timeout tối đa của job (tránh treo CI vô hạn)
     timeout-minutes: 250
-
-    # Môi trường chạy
     runs-on: ubuntu-latest
+    
     env:
       ENVIRONMENT: BigTime Pre Version 1.0.14
       AUTHOR: hoanghai
@@ -54,42 +40,30 @@ jobs:
       BROWSER: Chromium, Edge, Firefox
 
     steps:
-    
-      # Checkout source code từ repository
-      - uses: actions/checkout@v4
+      # Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-   
-      # Setup Node.js environment
-      - uses: actions/setup-node@v4
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 23.9.0
 
-      # Cache npm để tăng tốc CI
-      - name: Cache npm
+      # Cache dependencies
+      - name: Cache npm dependencies
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            npm-${{ runner.os }}-
+            
 
-      # Cài dependencies đúng version theo package-lock.json
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
-
-      # Cài browser binaries cho Playwright
-      # --with-deps: cài thêm system dependencies cho Linux
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      # Generate Allure environment.properties
-      - name: Generate Allure environment
-        run: npx ts-node scripts/generate-env.ts
-
-
-      # Chạy Playwright tests
-      # Toàn bộ config lấy từ GitHub Secrets
-      - name: Run Playwright tests
+        - name: Run tests
         run: npx playwright test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
@@ -99,3 +73,13 @@ jobs:
           EMPLOYEE2_PASSWORD: ${{ secrets.EMPLOYEE2_PASSWORD }}
           MANAGER_TEAM_USERNAME: ${{ secrets.MANAGER_TEAM_USERNAME }}
           MANAGER_TEAM_PASSWORD: ${{ secrets.MANAGER_TEAM_PASSWORD }}
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      # Generate Allure environment
+      - name: Generate Allure environment
+        run: npx ts-node scripts/generate-env.ts
+
+      # Run Playwright tests
+      
