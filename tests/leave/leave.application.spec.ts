@@ -226,7 +226,7 @@ test.describe.serial('leave application', () => {
     await allure.step('Kiểm tra trường lý do giới hạn 255 ký tự', async () => {
       await leaveApplication.clickItemButton();
       await leaveApplication.clickAddButton();
-      const reason256 = leaveApplication.generateString(256);
+      const reason256 = leaveApplication.validateString(256);
       await leaveApplication.fillLydo(reason256);
       await leaveApplication.validateLydo();
     });

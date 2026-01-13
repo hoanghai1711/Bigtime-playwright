@@ -8,7 +8,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: 0,
   workers: 1,
-  timeout: 120000,
+  timeout: 60000,
 
   reporter: [
     ['list'],
@@ -20,8 +20,6 @@ export default defineConfig({
 
 
   use: {
-    
-
     headless: false, // true run in headless mode. false run with browser window opened.
     viewport: null,
     // headless: isHeadless, 
@@ -33,7 +31,7 @@ export default defineConfig({
 screenshot: 'only-on-failure',
   video: 'retain-on-failure',
   trace: 'on-first-retry',  
-    actionTimeout: 45000,
+    actionTimeout: 10000,
   },
 
   projects: [

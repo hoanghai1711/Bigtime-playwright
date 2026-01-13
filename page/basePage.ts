@@ -17,7 +17,12 @@ export class BasePage  extends SafeActions{
     readonly SREACH_BUTTON: Locator; 
     readonly SREACH_NO_DATA: Locator;
     readonly DELETE_BUTTON: Locator;
-    
+    readonly LOGOUT_BUTTON: Locator;
+    readonly VALIDATE_20_CHARACTER: Locator;
+    readonly VALIDATE_255_CHARACTER: Locator;
+    readonly VALIDATE_30_CHARACTER: Locator;
+
+
     constructor(page: Page) {
         super(page);
         this.ADD_BUTTON = page.locator("//span[normalize-space()='Thêm']");
@@ -33,6 +38,10 @@ export class BasePage  extends SafeActions{
         this.SREACH_BUTTON = page.getByRole('button', { name: 'Tìm kiếm' });
         this.DELETE_BUTTON = page.getByRole('button', { name: 'Xóa' });
         this.SREACH_NO_DATA = page.getByRole('cell', { name: 'Không có dữ liệu' });
+        this.VALIDATE_20_CHARACTER = page.locator('div').filter({ hasText: /^Không nhập quá 20 kí tự\.$/ }).first();
+        this.VALIDATE_255_CHARACTER = page.locator('div').filter({ hasText: /^Không nhập quá 255 kí tự\.$/ }).first();
+        this.VALIDATE_30_CHARACTER = page.locator('div').filter({ hasText: /^Không nhập quá 30 kí tự\.$/ }).first();
+        this.LOGOUT_BUTTON = page.getByRole('button', { name: 'Đăng xuất' });
     }
 
     async clickAddButton() {
@@ -81,6 +90,11 @@ export class BasePage  extends SafeActions{
         await this.safeClick(this.YES_BUTTON);
     }
 
+    async logoutButton(){
+        await this.safeClick(this.LOGOUT_BUTTON);
+        await this.clickYesButton();
+        
+    }
     async validateLydo(){
         await this.safeVerifyToHaveText(this.VALIDATE_LYDO, 'Lý do là bắt buộc.');
     }
@@ -97,9 +111,23 @@ export class BasePage  extends SafeActions{
         await this.safeVerifyToHaveText(this.SREACH_NO_DATA, 'Không có dữ liệu');
     }
 
-    generateString(length: number): string {
+    validateString(length: number): string {
         return 'z'.repeat(length);
     }
+
+    validate20Character(){
+        this.safeVerifyToHaveText(this.VALIDATE_20_CHARACTER, 'Không nhập quá 20 kí tự.');
+    }
+
+    validate255Character(){
+        this.safeVerifyToHaveText(this.VALIDATE_255_CHARACTER, 'Không nhập quá 255 kí tự.');
+    }
+
+    validate30Character(){
+        this.safeVerifyToHaveText(this.VALIDATE_30_CHARACTER, 'Không nhập quá 30 kí tự.');
+    }
+
+
 
 
 }   

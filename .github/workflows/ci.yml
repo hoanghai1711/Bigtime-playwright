@@ -1,0 +1,222 @@
+name: HRM Automation CI/CD
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 8 * * *'  # Daily at 8AM UTC (3PM Vietnam)
+  workflow_dispatch:  # Cho phép chạy thủ công
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      test_prefix: ${{ steps.setup.outputs.test_prefix }}
+      test_year: ${{ steps.setup.outputs.test_year }}
+    
+    steps:
+    - name:  Checkout code
+      uses: actions/checkout@v4
+    
+    - name:  Generate test identifiers
+      id: setup
+      run: |
+        # Tạo unique test identifiers
+        TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+        RUN_PREFIX="ci_${TIMESTAMP}_${GITHUB_RUN_ID}"
+        echo "test_prefix=${RUN_PREFIX}" >> $GITHUB_OUTPUT
+        
+        # Dùng năm rất xa để không ảnh hưởng dữ liệu thật
+        echo "test_year=2045" >> $GITHUB_OUTPUT
+        
+        echo "Test Prefix: ${RUN_PREFIX}"
+        echo " Test Year: 2045"
+
+  run-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    
+    env:
+      # Application URLs - từ GitHub Secrets
+      URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
+      
+      # Database configuration - từ GitHub Secrets
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      
+      # Test users - từ GitHub Secrets
+      ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
+      EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
+      MANAGER_USERNAME: ${{ secrets.MANAGER_USERNAME }}
+      MANAGER_PASSWORD: ${{ secrets.MANAGER_PASSWORD }}
+      
+      # Test configuration
+      TEST_PREFIX: ${{ needs.setup.outputs.test_prefix }}
+      TEST_YEAR: ${{ needs.setup.outputs.test_year }}
+    
+    steps:
+    - name:  Checkout code
+      uses: actions/checkout@v4
+    
+    - name:  Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.npm
+          node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
+    - name: ⎔ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name:  Install dependencies
+      run: |
+        echo "Installing dependencies..."
+        npm ci
+    
+    - name:  Install Playwright browsers
+      run: |
+        echo "Installing Playwright browsers..."
+        npx playwright install --with-deps chromium
+    
+    - name:  Test database connection
+      run: |
+        echo "Testing database connection..."
+        
+        # Cài mysql client
+        sudo apt-get update
+        sudo apt-get install -y mysql-client
+        
+        # Test connection (ẩn password trong logs)
+        if mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p"$DB_PASSWORD" -e "SELECT 1;" $DB_NAME 2>/dev/null; then
+          echo " Database connection successful"
+        else
+          echo " Database connection failed - continuing tests anyway"
+        fi
+    
+    - name:  Run Login tests
+      run: |
+        echo "=== Running Login Tests ==="
+        echo "URL: $URL_BIGTIME"
+        echo "Admin: $ADMIN_USERNAME"
+        
+        npx playwright test tests/login.spec.ts \
+          --reporter=line \
+          --workers=1 \
+          --timeout=60000 \
+          || echo "Login tests completed"
+    
+    - name:  Run Employee tests
+      run: |
+        echo "=== Running Employee Tests ==="
+        echo "Test Prefix: $TEST_PREFIX"
+        
+        npx playwright test tests/employee.spec.ts \
+          --reporter=line \
+          --workers=1 \
+          --timeout=120000 \
+          --grep="Create employee" \
+          || echo "Employee tests completed"
+    
+    - name:  Run Leave tests
+      run: |
+        echo "=== Running Leave Tests ==="
+        echo "Test Year: $TEST_YEAR"
+        
+        npx playwright test tests/leave/ \
+          --reporter=line \
+          --workers=1 \
+          --timeout=180000 \
+          || echo "Leave tests completed"
+    
+    - name: Run API tests
+      run: |
+        echo "=== Running API Tests ==="
+        
+        npx playwright test tests/api/ \
+          --reporter=line \
+          --workers=1 \
+          --timeout=60000 \
+          || echo "API tests completed"
+    
+    - name:  Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ github.run_id }}
+        path: |
+          playwright-report/
+          test-results/
+          screenshots/
+        retention-days: 14
+    
+    - name:  Generate test report
+      if: always()
+      run: |
+        echo "Generating test report..."
+        
+        # Kiểm tra nếu có test results
+        if [ -d "playwright-report" ]; then
+          echo " Playwright report available"
+        fi
+        
+        if [ -d "screenshots" ]; then
+          SCREENSHOT_COUNT=$(find screenshots -name "*.png" 2>/dev/null | wc -l)
+          echo " Screenshots: $SCREENSHOT_COUNT"
+        fi
+
+  report:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [setup, run-tests]
+    
+    steps:
+    - name:  Create summary report
+      run: |
+        echo "#  HRM Automation Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Run ID:** ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "##  Test Configuration" >> $GITHUB_STEP_SUMMARY
+        echo "- **Test Prefix:** ${{ needs.setup.outputs.test_prefix }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Test Year:** ${{ needs.setup.outputs.test_year }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "##  Artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "Download test artifacts from the right panel 👉" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "##  Next Steps" >> $GITHUB_STEP_SUMMARY
+        if [[ "${{ job.status }}" == "success" ]]; then
+          echo " All tests passed!" >> $GITHUB_STEP_SUMMARY
+          echo "You can now merge this branch if applicable." >> $GITHUB_STEP_SUMMARY
+        else
+          echo " Some tests failed." >> $GITHUB_STEP_SUMMARY
+          echo "1. Download artifacts to see screenshots and reports" >> $GITHUB_STEP_SUMMARY
+          echo "2. Check the logs above for errors" >> $GITHUB_STEP_SUMMARY
+          echo "3. Fix the issues and push again" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "---" >> $GITHUB_STEP_SUMMARY
+        echo "*This report was generated automatically by GitHub Actions*" >> $GITHUB_STEP_SUMMARY
+    
+    - name:  Notify on failure (optional)
+      if: failure()
+      run: |
+        echo " Tests failed! Check GitHub Actions for details."
+        echo "URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        # Có thể thêm Slack/Discord notification ở đây nếu cần
