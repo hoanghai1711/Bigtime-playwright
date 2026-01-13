@@ -22,7 +22,7 @@ test.describe.serial('Leave Management', () => {
 
     await allure.step('Login hệ thống', async () => {
       await loginPage.goto();
-      await loginPage.login('info@bigapptech.vn', '12345678@Bat');
+      await loginPage.login('admin@gmail.com', '123456');
       await page.waitForTimeout(2000);
     });
   });

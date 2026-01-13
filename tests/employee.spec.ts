@@ -28,7 +28,7 @@ test.describe.serial("Employee Management Tests", () => {
     // Login hệ thống
     await allure.step("Login to system", async () => {
       await loginPage.goto();
-      await loginPage.login("info@bigapptech.vn", "12345678@Bat");
+      await loginPage.login("admin@gmail.com", "123456");
     });
   });
 
