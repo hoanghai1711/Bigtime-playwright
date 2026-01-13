@@ -18,7 +18,7 @@ import Config from '../Utils/configUtils';
     await loginPage.goto();
   });
 
-  test.only('Login Successful With Valid Credentials - Đăng nhập thành công với tài khoản admin', async () => {
+  test('Login Successful With Valid Credentials - Đăng nhập thành công với tài khoản admin', async () => {
     allure.story('Valid Admin Login Story');
 
     await allure.step('Login with admin account', async () => {
