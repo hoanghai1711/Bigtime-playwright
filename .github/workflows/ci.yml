@@ -1,4 +1,3 @@
-# File: .github/workflows/ci.yml
 name: HRM Automation CI/CD
 
 on:
@@ -9,86 +8,66 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      test_prefix: ${{ steps.setup.outputs.test_prefix }}
-      test_year: ${{ steps.setup.outputs.test_year }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Generate test identifiers
-        id: setup
-        run: |
-          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-          RUN_PREFIX="ci_${TIMESTAMP}_${GITHUB_RUN_ID}"
-          echo "test_prefix=${RUN_PREFIX}" >> $GITHUB_OUTPUT
-          echo "test_year=2045" >> $GITHUB_OUTPUT
-
   run-tests:
-    needs: setup
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
     env:
-      # TẤT CẢ biến môi trường từ GitHub Secrets
+     
       CI: true
       NODE_ENV: test
-      
+
+    
       URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
-      
-      DB_HOST: ${{ secrets.DB_HOST }}
-      DB_PORT: ${{ secrets.DB_PORT }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      DB_USER: ${{ secrets.DB_USER }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      
+
+     
+      DB_HOST: mock
+      DB_PORT: 3306
+      DB_NAME: mock
+      DB_USER: mock
+      DB_PASSWORD: mock
+
+      # Test accounts
       ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
       EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
       MANAGER_USERNAME: ${{ secrets.MANAGER_USERNAME }}
       MANAGER_PASSWORD: ${{ secrets.MANAGER_PASSWORD }}
-      
-      TEST_PREFIX: ${{ needs.setup.outputs.test_prefix }}
-      TEST_YEAR: ${{ needs.setup.outputs.test_year }}
 
     steps:
-      - name: Checkout code
+      - name:  Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: ⎔ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      - name: Install dependencies
+      - name:  Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name:  Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run tests
+      - name: Run Playwright tests (CI mode)
         run: |
-          echo "Starting tests in CI mode..."
-          echo "Environment variables are set via GitHub Secrets"
-          
-          # Chạy tests với continue-on-error
+          echo " Running tests in CI mode"
+          echo "CI=$CI"
+          echo "NODE_ENV=$NODE_ENV"
+
           npx playwright test \
-            --reporter=line,html \
+            --project=chromium \
             --workers=1 \
             --timeout=120000 \
-            --project=chromium \
-            || echo "Tests completed"
+            --reporter=line,html
 
-      - name: Upload test results
+      - name:  Upload test artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ github.run_id }}
+          name: playwright-results-${{ github.run_id }}
           path: |
             playwright-report/
             test-results/

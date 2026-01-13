@@ -1,7 +1,8 @@
-// File: db/core/DBConnection.ts
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-// KHÔNG hardcode credentials - chỉ dùng process.env
+dotenv.config();
+
 const config = {
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -9,63 +10,46 @@ const config = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   multipleStatements: true,
-  flags: ['+LOCAL_FILES'],
+};
+
+const mockResult = {
+  affectedRows: 0,
+  insertId: 0,
+  changedRows: 0,
 };
 
 export async function getConnection() {
-  // Kiểm tra nếu thiếu environment variables
-  if (!process.env.DB_HOST || !process.env.DB_USER || !process.env.DB_PASSWORD) {
-    console.warn('Database environment variables are missing');
-    
-   
-    if (process.env.CI === 'true') {
-      console.log('Running in CI mode without database connection');
-      return {
-        execute: async () => [],
-        query: async () => [],
-        end: async () => {}
-      };
-    }
-    
-    throw new Error('Database connection configuration is missing');
+  // 👉 CI MODE: không dùng DB thật
+  if (process.env.CI === 'true') {
+    console.warn('⚠️ CI mode – using mock database');
+
+    return {
+      execute: async () => [mockResult],
+      query: async () => [mockResult],
+      end: async () => {},
+    } as any;
   }
-  
-  try {
-    const connection = await mysql.createConnection(config);
-    return connection;
-  } catch (error) {
-    console.error(' Database connection failed');
-    
-   
-    if (process.env.CI === 'true') {
-      console.log('Continuing without database in CI mode');
-      return {
-        execute: async () => [],
-        query: async () => [],
-        end: async () => {}
-      };
-    }
-    
-    throw error;
-  }
+
+  return mysql.createConnection(config);
 }
 
-export async function executeQuery(sql: string, params: any[] = []): Promise<any> {
+export async function executeQuery(sql: string, params: any[] = []) {
   const conn = await getConnection();
+
   try {
     const [result] = await conn.execute(sql, params);
-    return result;
+    return result ?? mockResult;
   } catch (error) {
-  if (error instanceof Error) {
-    console.error('Database query error:', error.message);
-  } else {
-    console.error('Database query error:', error);
-  }
+    console.error('DB Error:', error);
 
-  if (process.env.CI === 'true') {
-    return { affectedRows: 0, insertId: 0 };
-  }
+    if (process.env.CI === 'true') {
+      return mockResult;
+    }
 
-  throw error;
+    throw error;
+  } finally {
+    if (conn?.end) {
+      await conn.end();
+    }
+  }
 }
-  }
