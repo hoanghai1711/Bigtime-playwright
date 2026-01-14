@@ -7,14 +7,13 @@
     "test:combined": "npx playwright test tests/examples/",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
-    "generate": "node report.js",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.53.0",
     "@types/node": "^22.15.21",
-    "allure-commandline": "^2.34.0",
+    "allure-commandline": "^2.36.0",
     "allure-playwright": "^2.15.1",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",

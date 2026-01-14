@@ -1,0 +1,2 @@
+Cleared 0 rows in users with condition: code LIKE '%AUTO_EMP_%'.
+Found 1 records in users with conditions: { code: { value: 'AUTO_EMP_001' } }
