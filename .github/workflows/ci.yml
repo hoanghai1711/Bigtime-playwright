@@ -1,72 +1,34 @@
+name: Pages
 
-name: Playwright Tests
+on:
+  push:
+    branches: [ develop, main ]
 
-#quyền để wfl chạy đúng
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-
-#check nhánh để chạy
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
-
-
-concurrency:
-  group: playwright-e2e
-  cancel-in-progress: true
-
 jobs:
-  test:
-    timeout-minutes: 250
+  build:
     runs-on: ubuntu-latest
-    
-    env:
-      ENVIRONMENT: BigTime Pre Version 1.0.14
-      AUTHOR: hoanghai
-      PLATFORM: Ubuntu
-      BROWSER: Chromium, Edge, Firefox
+    timeout-minutes: 250
 
     steps:
-      # Checkout source code
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 23.9.0
+          node-version: 20
 
-      # Cache dependencies
-      - name: Cache npm dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-${{ runner.os }}-
-            
-
-      # Install dependencies
       - name: Install dependencies
         run: npm ci
-      - name: Run tests
-        run: npx playwright test
-      
-      # Install Playwright browsers
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # Generate Allure environment
-      - name: Generate Allure environment
-        run: npx ts-node scripts/generate-env.ts
-
-      # Run Playwright tests
+      - name: Run Playwright tests
+        run: npx playwright test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
@@ -75,3 +37,21 @@ jobs:
           EMPLOYEE2_PASSWORD: ${{ secrets.EMPLOYEE2_PASSWORD }}
           MANAGER_TEAM_USERNAME: ${{ secrets.MANAGER_TEAM_USERNAME }}
           MANAGER_TEAM_PASSWORD: ${{ secrets.MANAGER_TEAM_PASSWORD }}
+
+      - name: Generate Allure report
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report  
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages  
+
+    steps:
+      - uses: actions/deploy-pages@v4
