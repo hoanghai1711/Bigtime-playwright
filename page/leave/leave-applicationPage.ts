@@ -86,26 +86,19 @@ export class LeaveApplication extends BasePage {
             this.page.getByRole('button', { name: 'Open years overlay' })
         );
         await this.safeClick(
-            this.page.locator(
-                `//div[@class='dp__overlay_cell dp__overlay_cell_pad'][normalize-space()='${year}']`
-            )
-        );
+            this.page.getByRole('gridcell', { name: year }) );
+            
+      
         // MONTH
         await this.safeClick(
             this.page.getByRole('button', { name: 'Open months overlay' })
         );
         await this.safeClick(
-            this.page.locator(
-                `//div[@class='dp__overlay_cell dp__overlay_cell_pad'][normalize-space()='${month}']`
-            )
+            this.page.getByRole('gridcell', { name: month, exact: true  })
         );
-        // DAY (FIX STRICT MODE)
+      
         await this.safeClick(
-            this.page.locator(
-                `//div[contains(@class,'dp__cell_inner')
-            and not(contains(@class,'dp__cell_offset'))]
-            [normalize-space()='${day}']`
-            )
+            this.page.getByLabel('Calendar days').getByRole('gridcell', { name: day , exact: true })
         );
     }
 
@@ -159,11 +152,9 @@ export class LeaveApplication extends BasePage {
     async sreachDatePicker(year: string, month: string) {
         await this.safeClick(this.CLICK_DATE_PICKER);
         await this.safeClick(this.page.getByRole('button', { name: 'Open years overlay' }));
-        await this.safeClick(this.page.locator(
-            `//div[@class='dp__overlay_cell dp__overlay_cell_pad'][normalize-space()='${year}']`));
+        await this.safeClick(this.page.getByRole('gridcell', { name: year, exact: true }));
         await this.safeClick(
-            this.page.locator(
-                `//div[@class='dp__overlay_cell dp__overlay_cell_pad'][normalize-space()='${month}']`));
+            this.page.getByRole('gridcell', { name: month, exact: true }));
         await this.clickSave();
         await this.safeClick(this.page.getByRole('button', { name: 'Tìm kiếm' }));
 

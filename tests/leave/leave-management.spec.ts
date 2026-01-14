@@ -4,7 +4,7 @@ import { LeaveManagementPage } from '../../page/leave/leave-managementPage';
 import { ToastPage } from '../../page/toastPage';
 import { allure } from 'allure-playwright';
 import { clearTable, importFromCSV } from '../../db/core/DBUtils';
-
+test.describe.configure({ mode: 'parallel' });
 test.describe.serial('Leave Management', () => {
   let loginPage: LoginPage;
   let leaveManagementPage: LeaveManagementPage;
@@ -18,12 +18,12 @@ test.describe.serial('Leave Management', () => {
     leaveManagementPage = new LeaveManagementPage(page);
     toastPage = new ToastPage(page);
 
-    await clearTable('leave_managements', "year IN ('2027', '2028', '2029', '2040')");
+  
 
     await allure.step('Login hệ thống', async () => {
       await loginPage.goto();
       await loginPage.login('admin@gmail.com', '123456');
-      await page.waitForTimeout(2000);
+     
     });
   });
   
@@ -38,6 +38,9 @@ test.describe.serial('Leave Management', () => {
     }
   });
 
+     test.beforeAll(async () => {
+      await clearTable('leave_managements', "year IN ('2027', '2028', '2029', '2040')");
+    }  );
   test('Add leave', async () => {
     allure.description('Verify that annual leave can be created successfully with valid information');
     allure.story('Add leave successfully');
@@ -182,7 +185,7 @@ test.describe.serial('Leave Management', () => {
     await allure.step('Tạo phép năm với nhân viên đã tồn tại', async () => {
       await leaveManagementPage.clickItemPhepNam();
       await leaveManagementPage.clickAddButton();
-      await leaveManagementPage.selectYear('2025');
+      await leaveManagementPage.selectYear('2029  ');
       await leaveManagementPage.fillNgayPhep('10');
       await leaveManagementPage.selectTrangThai('Chờ duyệt');
       await leaveManagementPage.clickAddButtonSecond();

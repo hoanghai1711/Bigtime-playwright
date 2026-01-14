@@ -1,0 +1,706 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - generic [ref=e10]: 󰍜
+        - text: 󰼬
+        - generic [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Admin Bigtime - System
+          - generic [ref=e15]:
+            - button "Quản lý" [ref=e16]:
+              - generic [ref=e17]:
+                - generic [ref=e18]: 󰳣
+                - paragraph [ref=e19]: Quản lý
+            - button "Chấm công" [ref=e20]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: 󱤤
+                - paragraph [ref=e23]: Chấm công
+            - button "Lương" [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 󱃣
+                - paragraph [ref=e27]: Lương
+        - generic [ref=e30] [cursor=pointer]:
+          - img [ref=e35]
+          - generic [ref=e36]: Nhân viên nhân sự
+        - button "Badge" [ref=e37] [cursor=pointer]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: 󰂜
+            - status "Badge" [ref=e42]
+        - button [ref=e43] [cursor=pointer]:
+          - generic [ref=e45]: 󰊓
+        - button "Đăng xuất" [ref=e46] [cursor=pointer]:
+          - generic [ref=e48]: Đăng xuất
+          - generic [ref=e50]: 󰍂
+    - banner [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e54]: Version 1.2.18
+        - list [ref=e55]:
+          - listitem "English" [ref=e56] [cursor=pointer]:
+            - img [ref=e58]
+          - listitem "Tiếng Việt" [ref=e59] [cursor=pointer]:
+            - img [ref=e61]
+        - button [ref=e62] [cursor=pointer]:
+          - generic [ref=e64]: 󰖙
+    - navigation [ref=e65]:
+      - listbox [ref=e67]:
+        - link "Trung tâm" [ref=e68] [cursor=pointer]:
+          - /url: /dashboard-admin
+          - generic [ref=e70]: 󰨇
+          - generic [ref=e72]: Trung tâm
+        - separator [ref=e73]
+        - generic [ref=e76]: Thông báo
+        - link "Danh sách thông báo" [ref=e77] [cursor=pointer]:
+          - /url: /list-notification
+          - generic [ref=e79]: 󰂜
+          - generic [ref=e81]: Danh sách thông báo
+        - separator [ref=e82]
+        - generic [ref=e85]: Đánh giá
+        - link "Quy trình đánh giá" [ref=e86] [cursor=pointer]:
+          - /url: /evaluation-progress
+          - generic [ref=e88]: 󰂽
+          - generic [ref=e90]: Quy trình đánh giá
+        - link "Danh sách đánh giá" [ref=e91] [cursor=pointer]:
+          - /url: /list-evaluation
+          - generic [ref=e93]: 󱙓
+          - generic [ref=e95]: Danh sách đánh giá
+        - separator [ref=e96]
+        - generic [ref=e99]: Chung
+        - link "Quản lý ngày phép năm" [ref=e100] [cursor=pointer]:
+          - /url: /leave-management
+          - generic [ref=e102]: 󱐫
+          - generic [ref=e104]: Quản lý ngày phép năm
+        - link "Đơn nghỉ phép" [ref=e105] [cursor=pointer]:
+          - /url: /leave-application
+          - generic [ref=e107]: 󱇗
+          - generic [ref=e109]: Đơn nghỉ phép
+        - link "Đơn thôi việc" [ref=e110] [cursor=pointer]:
+          - /url: /resignation
+          - generic [ref=e112]: 󱙏
+          - generic [ref=e114]: Đơn thôi việc
+    - main [ref=e115]:
+      - generic [ref=e120]:
+        - generic [ref=e123]:
+          - generic [ref=e125]: Đơn nghỉ phép
+          - button "Làm mới" [ref=e126] [cursor=pointer]:
+            - generic [ref=e127]:
+              - generic [ref=e128]: 󱎠
+              - text: Làm mới
+          - button "Thêm" [ref=e129] [cursor=pointer]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: 󰐕
+              - text: Thêm
+          - button [ref=e132] [cursor=pointer]:
+            - generic [ref=e134]: 󱪤
+        - generic [ref=e136]:
+          - combobox [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]:
+              - generic: Loại ngày nghỉ
+              - generic [ref=e142]:
+                - textbox "Open"
+            - generic [ref=e144]: 󰍝
+          - combobox [ref=e148] [cursor=pointer]:
+            - generic [ref=e150]:
+              - generic [ref=e152]: Chờ duyệt
+              - textbox "Open": "1"
+            - generic [ref=e154]: 󰍝
+            - generic:
+              - generic:
+                - generic: Trạng thái
+          - generic [ref=e162]:
+            - generic [ref=e164]: 󰃳
+            - textbox "Chọn tháng Chọn tháng" [ref=e166]: 01-2026
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Chọn tháng
+          - generic [ref=e167]:
+            - button "Tìm kiếm" [ref=e168] [cursor=pointer]:
+              - generic [ref=e170]: 󰒊
+              - generic [ref=e171]: Tìm kiếm
+            - button "Xóa" [ref=e172] [cursor=pointer]:
+              - generic [ref=e174]: 󰅖
+              - generic [ref=e175]: Xóa
+        - generic [ref=e176]:
+          - table [ref=e178]:
+            - rowgroup [ref=e179]:
+              - row "# Tên nhân viên Nghỉ từ ngày Đến hết ngày Số ngày nghỉ Lý do Loại ngày nghỉ Trạng thái" [ref=e180]:
+                - columnheader "#" [ref=e181]:
+                  - generic [ref=e182]: "#"
+                - columnheader "Tên nhân viên" [ref=e183]:
+                  - generic [ref=e184]: Tên nhân viên
+                - columnheader "Nghỉ từ ngày" [ref=e185]:
+                  - generic [ref=e186]: Nghỉ từ ngày
+                - columnheader "Đến hết ngày" [ref=e187]:
+                  - generic [ref=e188]: Đến hết ngày
+                - columnheader "Số ngày nghỉ" [ref=e189]:
+                  - generic [ref=e190]: Số ngày nghỉ
+                - columnheader "Lý do" [ref=e191]:
+                  - generic [ref=e192]: Lý do
+                - columnheader "Loại ngày nghỉ" [ref=e193]:
+                  - generic [ref=e194]: Loại ngày nghỉ
+                - columnheader "Trạng thái" [ref=e195]:
+                  - generic [ref=e196]: Trạng thái
+            - rowgroup [ref=e197]:
+              - row "1 123 - Nhân viên nhân sự 15-01-2026 16-01-2026 2 abc Nghỉ theo phép năm Chờ duyệt" [ref=e198]:
+                - cell "1" [ref=e199]
+                - cell "123 - Nhân viên nhân sự" [ref=e200]
+                - cell "15-01-2026" [ref=e201]:
+                  - generic [ref=e203]: 15-01-2026
+                - cell "16-01-2026" [ref=e204]:
+                  - generic [ref=e206]: 16-01-2026
+                - cell "2" [ref=e207]
+                - cell "abc" [ref=e208]
+                - cell "Nghỉ theo phép năm" [ref=e209]:
+                  - generic [ref=e211]: Nghỉ theo phép năm
+                - cell "Chờ duyệt" [ref=e212]:
+                  - generic [ref=e214]: Chờ duyệt
+          - generic [ref=e216]:
+            - generic [ref=e217]: Tổng
+            - text: 1,
+            - generic [ref=e218]: Hiển thị
+            - combobox [ref=e221] [cursor=pointer]:
+              - generic [ref=e223]:
+                - generic [ref=e225]: "20"
+                - textbox "Open": "20"
+              - generic [ref=e227]: 󰍝
+            - navigation "Pagination Navigation" [ref=e228]:
+              - list [ref=e229]:
+                - listitem [ref=e230]:
+                  - button "Previous page" [disabled]:
+                    - generic:
+                      - generic: 󰅁
+                - listitem [ref=e231]:
+                  - button "Page 1, Current page" [disabled]:
+                    - generic: "1"
+                - listitem [ref=e232]:
+                  - button "Next page" [disabled]:
+                    - generic:
+                      - generic: 󰅂
+  - generic:
+    - tooltip
+    - tooltip
+    - tooltip
+  - dialog [ref=e233]:
+    - document [ref=e235]:
+      - generic [ref=e237]:
+        - dialog [ref=e239]:
+          - grid [ref=e240]:
+            - generic [ref=e241]:
+              - generic [ref=e242]:
+                - button "Previous month" [ref=e244] [cursor=pointer]:
+                  - img [ref=e245]
+                - button "Open years overlay" [ref=e247] [cursor=pointer]: "2026"
+                - button "Next month" [ref=e249] [cursor=pointer]:
+                  - img [ref=e250]
+              - dialog [ref=e252]:
+                - grid [ref=e253]:
+                  - row "1900 1901 1902" [ref=e254]:
+                    - gridcell "1900" [ref=e255]:
+                      - generic [ref=e256] [cursor=pointer]: "1900"
+                    - gridcell "1901" [ref=e257]:
+                      - generic [ref=e258] [cursor=pointer]: "1901"
+                    - gridcell "1902" [ref=e259]:
+                      - generic [ref=e260] [cursor=pointer]: "1902"
+                  - row "1903 1904 1905" [ref=e261]:
+                    - gridcell "1903" [ref=e262]:
+                      - generic [ref=e263] [cursor=pointer]: "1903"
+                    - gridcell "1904" [ref=e264]:
+                      - generic [ref=e265] [cursor=pointer]: "1904"
+                    - gridcell "1905" [ref=e266]:
+                      - generic [ref=e267] [cursor=pointer]: "1905"
+                  - row "1906 1907 1908" [ref=e268]:
+                    - gridcell "1906" [ref=e269]:
+                      - generic [ref=e270] [cursor=pointer]: "1906"
+                    - gridcell "1907" [ref=e271]:
+                      - generic [ref=e272] [cursor=pointer]: "1907"
+                    - gridcell "1908" [ref=e273]:
+                      - generic [ref=e274] [cursor=pointer]: "1908"
+                  - row "1909 1910 1911" [ref=e275]:
+                    - gridcell "1909" [ref=e276]:
+                      - generic [ref=e277] [cursor=pointer]: "1909"
+                    - gridcell "1910" [ref=e278]:
+                      - generic [ref=e279] [cursor=pointer]: "1910"
+                    - gridcell "1911" [ref=e280]:
+                      - generic [ref=e281] [cursor=pointer]: "1911"
+                  - row "1912 1913 1914" [ref=e282]:
+                    - gridcell "1912" [ref=e283]:
+                      - generic [ref=e284] [cursor=pointer]: "1912"
+                    - gridcell "1913" [ref=e285]:
+                      - generic [ref=e286] [cursor=pointer]: "1913"
+                    - gridcell "1914" [ref=e287]:
+                      - generic [ref=e288] [cursor=pointer]: "1914"
+                  - row "1915 1916 1917" [ref=e289]:
+                    - gridcell "1915" [ref=e290]:
+                      - generic [ref=e291] [cursor=pointer]: "1915"
+                    - gridcell "1916" [ref=e292]:
+                      - generic [ref=e293] [cursor=pointer]: "1916"
+                    - gridcell "1917" [ref=e294]:
+                      - generic [ref=e295] [cursor=pointer]: "1917"
+                  - row "1918 1919 1920" [ref=e296]:
+                    - gridcell "1918" [ref=e297]:
+                      - generic [ref=e298] [cursor=pointer]: "1918"
+                    - gridcell "1919" [ref=e299]:
+                      - generic [ref=e300] [cursor=pointer]: "1919"
+                    - gridcell "1920" [ref=e301]:
+                      - generic [ref=e302] [cursor=pointer]: "1920"
+                  - row "1921 1922 1923" [ref=e303]:
+                    - gridcell "1921" [ref=e304]:
+                      - generic [ref=e305] [cursor=pointer]: "1921"
+                    - gridcell "1922" [ref=e306]:
+                      - generic [ref=e307] [cursor=pointer]: "1922"
+                    - gridcell "1923" [ref=e308]:
+                      - generic [ref=e309] [cursor=pointer]: "1923"
+                  - row "1924 1925 1926" [ref=e310]:
+                    - gridcell "1924" [ref=e311]:
+                      - generic [ref=e312] [cursor=pointer]: "1924"
+                    - gridcell "1925" [ref=e313]:
+                      - generic [ref=e314] [cursor=pointer]: "1925"
+                    - gridcell "1926" [ref=e315]:
+                      - generic [ref=e316] [cursor=pointer]: "1926"
+                  - row "1927 1928 1929" [ref=e317]:
+                    - gridcell "1927" [ref=e318]:
+                      - generic [ref=e319] [cursor=pointer]: "1927"
+                    - gridcell "1928" [ref=e320]:
+                      - generic [ref=e321] [cursor=pointer]: "1928"
+                    - gridcell "1929" [ref=e322]:
+                      - generic [ref=e323] [cursor=pointer]: "1929"
+                  - row "1930 1931 1932" [ref=e324]:
+                    - gridcell "1930" [ref=e325]:
+                      - generic [ref=e326] [cursor=pointer]: "1930"
+                    - gridcell "1931" [ref=e327]:
+                      - generic [ref=e328] [cursor=pointer]: "1931"
+                    - gridcell "1932" [ref=e329]:
+                      - generic [ref=e330] [cursor=pointer]: "1932"
+                  - row "1933 1934 1935" [ref=e331]:
+                    - gridcell "1933" [ref=e332]:
+                      - generic [ref=e333] [cursor=pointer]: "1933"
+                    - gridcell "1934" [ref=e334]:
+                      - generic [ref=e335] [cursor=pointer]: "1934"
+                    - gridcell "1935" [ref=e336]:
+                      - generic [ref=e337] [cursor=pointer]: "1935"
+                  - row "1936 1937 1938" [ref=e338]:
+                    - gridcell "1936" [ref=e339]:
+                      - generic [ref=e340] [cursor=pointer]: "1936"
+                    - gridcell "1937" [ref=e341]:
+                      - generic [ref=e342] [cursor=pointer]: "1937"
+                    - gridcell "1938" [ref=e343]:
+                      - generic [ref=e344] [cursor=pointer]: "1938"
+                  - row "1939 1940 1941" [ref=e345]:
+                    - gridcell "1939" [ref=e346]:
+                      - generic [ref=e347] [cursor=pointer]: "1939"
+                    - gridcell "1940" [ref=e348]:
+                      - generic [ref=e349] [cursor=pointer]: "1940"
+                    - gridcell "1941" [ref=e350]:
+                      - generic [ref=e351] [cursor=pointer]: "1941"
+                  - row "1942 1943 1944" [ref=e352]:
+                    - gridcell "1942" [ref=e353]:
+                      - generic [ref=e354] [cursor=pointer]: "1942"
+                    - gridcell "1943" [ref=e355]:
+                      - generic [ref=e356] [cursor=pointer]: "1943"
+                    - gridcell "1944" [ref=e357]:
+                      - generic [ref=e358] [cursor=pointer]: "1944"
+                  - row "1945 1946 1947" [ref=e359]:
+                    - gridcell "1945" [ref=e360]:
+                      - generic [ref=e361] [cursor=pointer]: "1945"
+                    - gridcell "1946" [ref=e362]:
+                      - generic [ref=e363] [cursor=pointer]: "1946"
+                    - gridcell "1947" [ref=e364]:
+                      - generic [ref=e365] [cursor=pointer]: "1947"
+                  - row "1948 1949 1950" [ref=e366]:
+                    - gridcell "1948" [ref=e367]:
+                      - generic [ref=e368] [cursor=pointer]: "1948"
+                    - gridcell "1949" [ref=e369]:
+                      - generic [ref=e370] [cursor=pointer]: "1949"
+                    - gridcell "1950" [ref=e371]:
+                      - generic [ref=e372] [cursor=pointer]: "1950"
+                  - row "1951 1952 1953" [ref=e373]:
+                    - gridcell "1951" [ref=e374]:
+                      - generic [ref=e375] [cursor=pointer]: "1951"
+                    - gridcell "1952" [ref=e376]:
+                      - generic [ref=e377] [cursor=pointer]: "1952"
+                    - gridcell "1953" [ref=e378]:
+                      - generic [ref=e379] [cursor=pointer]: "1953"
+                  - row "1954 1955 1956" [ref=e380]:
+                    - gridcell "1954" [ref=e381]:
+                      - generic [ref=e382] [cursor=pointer]: "1954"
+                    - gridcell "1955" [ref=e383]:
+                      - generic [ref=e384] [cursor=pointer]: "1955"
+                    - gridcell "1956" [ref=e385]:
+                      - generic [ref=e386] [cursor=pointer]: "1956"
+                  - row "1957 1958 1959" [ref=e387]:
+                    - gridcell "1957" [ref=e388]:
+                      - generic [ref=e389] [cursor=pointer]: "1957"
+                    - gridcell "1958" [ref=e390]:
+                      - generic [ref=e391] [cursor=pointer]: "1958"
+                    - gridcell "1959" [ref=e392]:
+                      - generic [ref=e393] [cursor=pointer]: "1959"
+                  - row "1960 1961 1962" [ref=e394]:
+                    - gridcell "1960" [ref=e395]:
+                      - generic [ref=e396] [cursor=pointer]: "1960"
+                    - gridcell "1961" [ref=e397]:
+                      - generic [ref=e398] [cursor=pointer]: "1961"
+                    - gridcell "1962" [ref=e399]:
+                      - generic [ref=e400] [cursor=pointer]: "1962"
+                  - row "1963 1964 1965" [ref=e401]:
+                    - gridcell "1963" [ref=e402]:
+                      - generic [ref=e403] [cursor=pointer]: "1963"
+                    - gridcell "1964" [ref=e404]:
+                      - generic [ref=e405] [cursor=pointer]: "1964"
+                    - gridcell "1965" [ref=e406]:
+                      - generic [ref=e407] [cursor=pointer]: "1965"
+                  - row "1966 1967 1968" [ref=e408]:
+                    - gridcell "1966" [ref=e409]:
+                      - generic [ref=e410] [cursor=pointer]: "1966"
+                    - gridcell "1967" [ref=e411]:
+                      - generic [ref=e412] [cursor=pointer]: "1967"
+                    - gridcell "1968" [ref=e413]:
+                      - generic [ref=e414] [cursor=pointer]: "1968"
+                  - row "1969 1970 1971" [ref=e415]:
+                    - gridcell "1969" [ref=e416]:
+                      - generic [ref=e417] [cursor=pointer]: "1969"
+                    - gridcell "1970" [ref=e418]:
+                      - generic [ref=e419] [cursor=pointer]: "1970"
+                    - gridcell "1971" [ref=e420]:
+                      - generic [ref=e421] [cursor=pointer]: "1971"
+                  - row "1972 1973 1974" [ref=e422]:
+                    - gridcell "1972" [ref=e423]:
+                      - generic [ref=e424] [cursor=pointer]: "1972"
+                    - gridcell "1973" [ref=e425]:
+                      - generic [ref=e426] [cursor=pointer]: "1973"
+                    - gridcell "1974" [ref=e427]:
+                      - generic [ref=e428] [cursor=pointer]: "1974"
+                  - row "1975 1976 1977" [ref=e429]:
+                    - gridcell "1975" [ref=e430]:
+                      - generic [ref=e431] [cursor=pointer]: "1975"
+                    - gridcell "1976" [ref=e432]:
+                      - generic [ref=e433] [cursor=pointer]: "1976"
+                    - gridcell "1977" [ref=e434]:
+                      - generic [ref=e435] [cursor=pointer]: "1977"
+                  - row "1978 1979 1980" [ref=e436]:
+                    - gridcell "1978" [ref=e437]:
+                      - generic [ref=e438] [cursor=pointer]: "1978"
+                    - gridcell "1979" [ref=e439]:
+                      - generic [ref=e440] [cursor=pointer]: "1979"
+                    - gridcell "1980" [ref=e441]:
+                      - generic [ref=e442] [cursor=pointer]: "1980"
+                  - row "1981 1982 1983" [ref=e443]:
+                    - gridcell "1981" [ref=e444]:
+                      - generic [ref=e445] [cursor=pointer]: "1981"
+                    - gridcell "1982" [ref=e446]:
+                      - generic [ref=e447] [cursor=pointer]: "1982"
+                    - gridcell "1983" [ref=e448]:
+                      - generic [ref=e449] [cursor=pointer]: "1983"
+                  - row "1984 1985 1986" [ref=e450]:
+                    - gridcell "1984" [ref=e451]:
+                      - generic [ref=e452] [cursor=pointer]: "1984"
+                    - gridcell "1985" [ref=e453]:
+                      - generic [ref=e454] [cursor=pointer]: "1985"
+                    - gridcell "1986" [ref=e455]:
+                      - generic [ref=e456] [cursor=pointer]: "1986"
+                  - row "1987 1988 1989" [ref=e457]:
+                    - gridcell "1987" [ref=e458]:
+                      - generic [ref=e459] [cursor=pointer]: "1987"
+                    - gridcell "1988" [ref=e460]:
+                      - generic [ref=e461] [cursor=pointer]: "1988"
+                    - gridcell "1989" [ref=e462]:
+                      - generic [ref=e463] [cursor=pointer]: "1989"
+                  - row "1990 1991 1992" [ref=e464]:
+                    - gridcell "1990" [ref=e465]:
+                      - generic [ref=e466] [cursor=pointer]: "1990"
+                    - gridcell "1991" [ref=e467]:
+                      - generic [ref=e468] [cursor=pointer]: "1991"
+                    - gridcell "1992" [ref=e469]:
+                      - generic [ref=e470] [cursor=pointer]: "1992"
+                  - row "1993 1994 1995" [ref=e471]:
+                    - gridcell "1993" [ref=e472]:
+                      - generic [ref=e473] [cursor=pointer]: "1993"
+                    - gridcell "1994" [ref=e474]:
+                      - generic [ref=e475] [cursor=pointer]: "1994"
+                    - gridcell "1995" [ref=e476]:
+                      - generic [ref=e477] [cursor=pointer]: "1995"
+                  - row "1996 1997 1998" [ref=e478]:
+                    - gridcell "1996" [ref=e479]:
+                      - generic [ref=e480] [cursor=pointer]: "1996"
+                    - gridcell "1997" [ref=e481]:
+                      - generic [ref=e482] [cursor=pointer]: "1997"
+                    - gridcell "1998" [ref=e483]:
+                      - generic [ref=e484] [cursor=pointer]: "1998"
+                  - row "1999 2000 2001" [ref=e485]:
+                    - gridcell "1999" [ref=e486]:
+                      - generic [ref=e487] [cursor=pointer]: "1999"
+                    - gridcell "2000" [ref=e488]:
+                      - generic [ref=e489] [cursor=pointer]: "2000"
+                    - gridcell "2001" [ref=e490]:
+                      - generic [ref=e491] [cursor=pointer]: "2001"
+                  - row "2002 2003 2004" [ref=e492]:
+                    - gridcell "2002" [ref=e493]:
+                      - generic [ref=e494] [cursor=pointer]: "2002"
+                    - gridcell "2003" [ref=e495]:
+                      - generic [ref=e496] [cursor=pointer]: "2003"
+                    - gridcell "2004" [ref=e497]:
+                      - generic [ref=e498] [cursor=pointer]: "2004"
+                  - row "2005 2006 2007" [ref=e499]:
+                    - gridcell "2005" [ref=e500]:
+                      - generic [ref=e501] [cursor=pointer]: "2005"
+                    - gridcell "2006" [ref=e502]:
+                      - generic [ref=e503] [cursor=pointer]: "2006"
+                    - gridcell "2007" [ref=e504]:
+                      - generic [ref=e505] [cursor=pointer]: "2007"
+                  - row "2008 2009 2010" [ref=e506]:
+                    - gridcell "2008" [ref=e507]:
+                      - generic [ref=e508] [cursor=pointer]: "2008"
+                    - gridcell "2009" [ref=e509]:
+                      - generic [ref=e510] [cursor=pointer]: "2009"
+                    - gridcell "2010" [ref=e511]:
+                      - generic [ref=e512] [cursor=pointer]: "2010"
+                  - row "2011 2012 2013" [ref=e513]:
+                    - gridcell "2011" [ref=e514]:
+                      - generic [ref=e515] [cursor=pointer]: "2011"
+                    - gridcell "2012" [ref=e516]:
+                      - generic [ref=e517] [cursor=pointer]: "2012"
+                    - gridcell "2013" [ref=e518]:
+                      - generic [ref=e519] [cursor=pointer]: "2013"
+                  - row "2014 2015 2016" [ref=e520]:
+                    - gridcell "2014" [ref=e521]:
+                      - generic [ref=e522] [cursor=pointer]: "2014"
+                    - gridcell "2015" [ref=e523]:
+                      - generic [ref=e524] [cursor=pointer]: "2015"
+                    - gridcell "2016" [ref=e525]:
+                      - generic [ref=e526] [cursor=pointer]: "2016"
+                  - row "2017 2018 2019" [ref=e527]:
+                    - gridcell "2017" [ref=e528]:
+                      - generic [ref=e529] [cursor=pointer]: "2017"
+                    - gridcell "2018" [ref=e530]:
+                      - generic [ref=e531] [cursor=pointer]: "2018"
+                    - gridcell "2019" [ref=e532]:
+                      - generic [ref=e533] [cursor=pointer]: "2019"
+                  - row "2020 2021 2022" [ref=e534]:
+                    - gridcell "2020" [ref=e535]:
+                      - generic [ref=e536] [cursor=pointer]: "2020"
+                    - gridcell "2021" [ref=e537]:
+                      - generic [ref=e538] [cursor=pointer]: "2021"
+                    - gridcell "2022" [ref=e539]:
+                      - generic [ref=e540] [cursor=pointer]: "2022"
+                  - row "2023 2024 2025" [ref=e541]:
+                    - gridcell "2023" [ref=e542]:
+                      - generic [ref=e543] [cursor=pointer]: "2023"
+                    - gridcell "2024" [ref=e544]:
+                      - generic [ref=e545] [cursor=pointer]: "2024"
+                    - gridcell "2025" [ref=e546]:
+                      - generic [ref=e547] [cursor=pointer]: "2025"
+                  - row "2026 2027 2028" [ref=e548]:
+                    - gridcell "2026" [active] [selected] [ref=e549]:
+                      - generic [ref=e550] [cursor=pointer]: "2026"
+                    - gridcell "2027" [ref=e551]:
+                      - generic [ref=e552] [cursor=pointer]: "2027"
+                    - gridcell "2028" [ref=e553]:
+                      - generic [ref=e554] [cursor=pointer]: "2028"
+                  - row "2029 2030 2031" [ref=e555]:
+                    - gridcell "2029" [ref=e556]:
+                      - generic [ref=e557] [cursor=pointer]: "2029"
+                    - gridcell "2030" [ref=e558]:
+                      - generic [ref=e559] [cursor=pointer]: "2030"
+                    - gridcell "2031" [ref=e560]:
+                      - generic [ref=e561] [cursor=pointer]: "2031"
+                  - row "2032 2033 2034" [ref=e562]:
+                    - gridcell "2032" [ref=e563]:
+                      - generic [ref=e564] [cursor=pointer]: "2032"
+                    - gridcell "2033" [ref=e565]:
+                      - generic [ref=e566] [cursor=pointer]: "2033"
+                    - gridcell "2034" [ref=e567]:
+                      - generic [ref=e568] [cursor=pointer]: "2034"
+                  - row "2035 2036 2037" [ref=e569]:
+                    - gridcell "2035" [ref=e570]:
+                      - generic [ref=e571] [cursor=pointer]: "2035"
+                    - gridcell "2036" [ref=e572]:
+                      - generic [ref=e573] [cursor=pointer]: "2036"
+                    - gridcell "2037" [ref=e574]:
+                      - generic [ref=e575] [cursor=pointer]: "2037"
+                  - row "2038 2039 2040" [ref=e576]:
+                    - gridcell "2038" [ref=e577]:
+                      - generic [ref=e578] [cursor=pointer]: "2038"
+                    - gridcell "2039" [ref=e579]:
+                      - generic [ref=e580] [cursor=pointer]: "2039"
+                    - gridcell "2040" [ref=e581]:
+                      - generic [ref=e582] [cursor=pointer]: "2040"
+                  - row "2041 2042 2043" [ref=e583]:
+                    - gridcell "2041" [ref=e584]:
+                      - generic [ref=e585] [cursor=pointer]: "2041"
+                    - gridcell "2042" [ref=e586]:
+                      - generic [ref=e587] [cursor=pointer]: "2042"
+                    - gridcell "2043" [ref=e588]:
+                      - generic [ref=e589] [cursor=pointer]: "2043"
+                  - row "2044 2045 2046" [ref=e590]:
+                    - gridcell "2044" [ref=e591]:
+                      - generic [ref=e592] [cursor=pointer]: "2044"
+                    - gridcell "2045" [ref=e593]:
+                      - generic [ref=e594] [cursor=pointer]: "2045"
+                    - gridcell "2046" [ref=e595]:
+                      - generic [ref=e596] [cursor=pointer]: "2046"
+                  - row "2047 2048 2049" [ref=e597]:
+                    - gridcell "2047" [ref=e598]:
+                      - generic [ref=e599] [cursor=pointer]: "2047"
+                    - gridcell "2048" [ref=e600]:
+                      - generic [ref=e601] [cursor=pointer]: "2048"
+                    - gridcell "2049" [ref=e602]:
+                      - generic [ref=e603] [cursor=pointer]: "2049"
+                  - row "2050 2051 2052" [ref=e604]:
+                    - gridcell "2050" [ref=e605]:
+                      - generic [ref=e606] [cursor=pointer]: "2050"
+                    - gridcell "2051" [ref=e607]:
+                      - generic [ref=e608] [cursor=pointer]: "2051"
+                    - gridcell "2052" [ref=e609]:
+                      - generic [ref=e610] [cursor=pointer]: "2052"
+                  - row "2053 2054 2055" [ref=e611]:
+                    - gridcell "2053" [ref=e612]:
+                      - generic [ref=e613] [cursor=pointer]: "2053"
+                    - gridcell "2054" [ref=e614]:
+                      - generic [ref=e615] [cursor=pointer]: "2054"
+                    - gridcell "2055" [ref=e616]:
+                      - generic [ref=e617] [cursor=pointer]: "2055"
+                  - row "2056 2057 2058" [ref=e618]:
+                    - gridcell "2056" [ref=e619]:
+                      - generic [ref=e620] [cursor=pointer]: "2056"
+                    - gridcell "2057" [ref=e621]:
+                      - generic [ref=e622] [cursor=pointer]: "2057"
+                    - gridcell "2058" [ref=e623]:
+                      - generic [ref=e624] [cursor=pointer]: "2058"
+                  - row "2059 2060 2061" [ref=e625]:
+                    - gridcell "2059" [ref=e626]:
+                      - generic [ref=e627] [cursor=pointer]: "2059"
+                    - gridcell "2060" [ref=e628]:
+                      - generic [ref=e629] [cursor=pointer]: "2060"
+                    - gridcell "2061" [ref=e630]:
+                      - generic [ref=e631] [cursor=pointer]: "2061"
+                  - row "2062 2063 2064" [ref=e632]:
+                    - gridcell "2062" [ref=e633]:
+                      - generic [ref=e634] [cursor=pointer]: "2062"
+                    - gridcell "2063" [ref=e635]:
+                      - generic [ref=e636] [cursor=pointer]: "2063"
+                    - gridcell "2064" [ref=e637]:
+                      - generic [ref=e638] [cursor=pointer]: "2064"
+                  - row "2065 2066 2067" [ref=e639]:
+                    - gridcell "2065" [ref=e640]:
+                      - generic [ref=e641] [cursor=pointer]: "2065"
+                    - gridcell "2066" [ref=e642]:
+                      - generic [ref=e643] [cursor=pointer]: "2066"
+                    - gridcell "2067" [ref=e644]:
+                      - generic [ref=e645] [cursor=pointer]: "2067"
+                  - row "2068 2069 2070" [ref=e646]:
+                    - gridcell "2068" [ref=e647]:
+                      - generic [ref=e648] [cursor=pointer]: "2068"
+                    - gridcell "2069" [ref=e649]:
+                      - generic [ref=e650] [cursor=pointer]: "2069"
+                    - gridcell "2070" [ref=e651]:
+                      - generic [ref=e652] [cursor=pointer]: "2070"
+                  - row "2071 2072 2073" [ref=e653]:
+                    - gridcell "2071" [ref=e654]:
+                      - generic [ref=e655] [cursor=pointer]: "2071"
+                    - gridcell "2072" [ref=e656]:
+                      - generic [ref=e657] [cursor=pointer]: "2072"
+                    - gridcell "2073" [ref=e658]:
+                      - generic [ref=e659] [cursor=pointer]: "2073"
+                  - row "2074 2075 2076" [ref=e660]:
+                    - gridcell "2074" [ref=e661]:
+                      - generic [ref=e662] [cursor=pointer]: "2074"
+                    - gridcell "2075" [ref=e663]:
+                      - generic [ref=e664] [cursor=pointer]: "2075"
+                    - gridcell "2076" [ref=e665]:
+                      - generic [ref=e666] [cursor=pointer]: "2076"
+                  - row "2077 2078 2079" [ref=e667]:
+                    - gridcell "2077" [ref=e668]:
+                      - generic [ref=e669] [cursor=pointer]: "2077"
+                    - gridcell "2078" [ref=e670]:
+                      - generic [ref=e671] [cursor=pointer]: "2078"
+                    - gridcell "2079" [ref=e672]:
+                      - generic [ref=e673] [cursor=pointer]: "2079"
+                  - row "2080 2081 2082" [ref=e674]:
+                    - gridcell "2080" [ref=e675]:
+                      - generic [ref=e676] [cursor=pointer]: "2080"
+                    - gridcell "2081" [ref=e677]:
+                      - generic [ref=e678] [cursor=pointer]: "2081"
+                    - gridcell "2082" [ref=e679]:
+                      - generic [ref=e680] [cursor=pointer]: "2082"
+                  - row "2083 2084 2085" [ref=e681]:
+                    - gridcell "2083" [ref=e682]:
+                      - generic [ref=e683] [cursor=pointer]: "2083"
+                    - gridcell "2084" [ref=e684]:
+                      - generic [ref=e685] [cursor=pointer]: "2084"
+                    - gridcell "2085" [ref=e686]:
+                      - generic [ref=e687] [cursor=pointer]: "2085"
+                  - row "2086 2087 2088" [ref=e688]:
+                    - gridcell "2086" [ref=e689]:
+                      - generic [ref=e690] [cursor=pointer]: "2086"
+                    - gridcell "2087" [ref=e691]:
+                      - generic [ref=e692] [cursor=pointer]: "2087"
+                    - gridcell "2088" [ref=e693]:
+                      - generic [ref=e694] [cursor=pointer]: "2088"
+                  - row "2089 2090 2091" [ref=e695]:
+                    - gridcell "2089" [ref=e696]:
+                      - generic [ref=e697] [cursor=pointer]: "2089"
+                    - gridcell "2090" [ref=e698]:
+                      - generic [ref=e699] [cursor=pointer]: "2090"
+                    - gridcell "2091" [ref=e700]:
+                      - generic [ref=e701] [cursor=pointer]: "2091"
+                  - row "2092 2093 2094" [ref=e702]:
+                    - gridcell "2092" [ref=e703]:
+                      - generic [ref=e704] [cursor=pointer]: "2092"
+                    - gridcell "2093" [ref=e705]:
+                      - generic [ref=e706] [cursor=pointer]: "2093"
+                    - gridcell "2094" [ref=e707]:
+                      - generic [ref=e708] [cursor=pointer]: "2094"
+                  - row "2095 2096 2097" [ref=e709]:
+                    - gridcell "2095" [ref=e710]:
+                      - generic [ref=e711] [cursor=pointer]: "2095"
+                    - gridcell "2096" [ref=e712]:
+                      - generic [ref=e713] [cursor=pointer]: "2096"
+                    - gridcell "2097" [ref=e714]:
+                      - generic [ref=e715] [cursor=pointer]: "2097"
+                  - row "2098 2099 2100" [ref=e716]:
+                    - gridcell "2098" [ref=e717]:
+                      - generic [ref=e718] [cursor=pointer]: "2098"
+                    - gridcell "2099" [ref=e719]:
+                      - generic [ref=e720] [cursor=pointer]: "2099"
+                    - gridcell "2100" [ref=e721]:
+                      - generic [ref=e722] [cursor=pointer]: "2100"
+                - button "Toggle overlay" [ref=e723] [cursor=pointer]:
+                  - img [ref=e724]
+            - row "Thg 1 Thg 2 Thg 3" [ref=e729]:
+              - gridcell "Thg 1" [selected] [ref=e730]:
+                - generic [ref=e731] [cursor=pointer]: Thg 1
+              - gridcell "Thg 2" [ref=e732]:
+                - generic [ref=e733] [cursor=pointer]: Thg 2
+              - gridcell "Thg 3" [ref=e734]:
+                - generic [ref=e735] [cursor=pointer]: Thg 3
+            - row "Thg 4 Thg 5 Thg 6" [ref=e736]:
+              - gridcell "Thg 4" [ref=e737]:
+                - generic [ref=e738] [cursor=pointer]: Thg 4
+              - gridcell "Thg 5" [ref=e739]:
+                - generic [ref=e740] [cursor=pointer]: Thg 5
+              - gridcell "Thg 6" [ref=e741]:
+                - generic [ref=e742] [cursor=pointer]: Thg 6
+            - row "Thg 7 Thg 8 Thg 9" [ref=e743]:
+              - gridcell "Thg 7" [ref=e744]:
+                - generic [ref=e745] [cursor=pointer]: Thg 7
+              - gridcell "Thg 8" [ref=e746]:
+                - generic [ref=e747] [cursor=pointer]: Thg 8
+              - gridcell "Thg 9" [ref=e748]:
+                - generic [ref=e749] [cursor=pointer]: Thg 9
+            - row "Thg 10 Thg 11 Thg 12" [ref=e750]:
+              - gridcell "Thg 10" [ref=e751]:
+                - generic [ref=e752] [cursor=pointer]: Thg 10
+              - gridcell "Thg 11" [ref=e753]:
+                - generic [ref=e754] [cursor=pointer]: Thg 11
+              - gridcell "Thg 12" [ref=e755]:
+                - generic [ref=e756] [cursor=pointer]: Thg 12
+        - grid "Calendar wrapper" [ref=e758]
+    - generic [ref=e759]:
+      - generic "01-2026" [ref=e760]
+      - generic [ref=e761]:
+        - button "Hủy" [ref=e762] [cursor=pointer]
+        - button "Chọn" [ref=e763] [cursor=pointer]
+```

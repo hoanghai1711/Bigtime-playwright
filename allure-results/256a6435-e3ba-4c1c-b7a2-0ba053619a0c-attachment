@@ -1,0 +1,547 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - generic [ref=e10]: 󰍜
+        - text: 󰼬
+        - generic [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Admin Bigtime - System
+          - generic [ref=e15]:
+            - button "Quản lý" [ref=e16]:
+              - generic [ref=e17]:
+                - generic [ref=e18]: 󰳣
+                - paragraph [ref=e19]: Quản lý
+            - button "Chấm công" [ref=e20]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: 󱤤
+                - paragraph [ref=e23]: Chấm công
+            - button "Lương" [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 󱃣
+                - paragraph [ref=e27]: Lương
+            - button "Cài đặt" [ref=e28]:
+              - generic [ref=e29]:
+                - generic [ref=e30]: 󰣖
+                - paragraph [ref=e31]: Cài đặt
+        - generic [ref=e34] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e40]: admin
+        - button "Badge" [ref=e41] [cursor=pointer]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 󰂜
+            - status "Badge" [ref=e46]
+        - button [ref=e47] [cursor=pointer]:
+          - generic [ref=e49]: 󰊓
+        - button "Đăng xuất" [ref=e50] [cursor=pointer]:
+          - generic [ref=e52]: Đăng xuất
+          - generic [ref=e54]: 󰍂
+    - banner [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e58]: Version 1.2.18
+        - list [ref=e59]:
+          - listitem "English" [ref=e60] [cursor=pointer]:
+            - img [ref=e62]
+          - listitem "Tiếng Việt" [ref=e63] [cursor=pointer]:
+            - img [ref=e65]
+        - button [ref=e66] [cursor=pointer]:
+          - generic [ref=e68]: 󰖙
+    - navigation [ref=e69]:
+      - listbox [ref=e71]:
+        - link "Trung tâm" [ref=e72] [cursor=pointer]:
+          - /url: /dashboard-admin
+          - generic [ref=e74]: 󰨇
+          - generic [ref=e76]: Trung tâm
+        - separator [ref=e77]
+        - generic [ref=e80]: Quản lý nhân viên
+        - link "Nhân viên" [ref=e81] [cursor=pointer]:
+          - /url: /user
+          - generic [ref=e83]: 󰳣
+          - generic [ref=e85]: Nhân viên
+        - separator [ref=e86]
+        - generic [ref=e89]: Thông báo
+        - link "Quản lý thông báo" [ref=e90] [cursor=pointer]:
+          - /url: /notification
+          - generic [ref=e92]: 󱥂
+          - generic [ref=e94]: Quản lý thông báo
+        - link "Danh sách thông báo" [ref=e95] [cursor=pointer]:
+          - /url: /list-notification
+          - generic [ref=e97]: 󰂜
+          - generic [ref=e99]: Danh sách thông báo
+        - separator [ref=e100]
+        - generic [ref=e103]: Đánh giá
+        - link "Loại đánh giá" [ref=e104] [cursor=pointer]:
+          - /url: /evaluation-type
+          - generic [ref=e106]: 󰹕
+          - generic [ref=e108]: Loại đánh giá
+        - link "Tiêu chí đánh giá" [ref=e109] [cursor=pointer]:
+          - /url: /evaluation-criteria
+          - generic [ref=e111]: 󱓶
+          - generic [ref=e113]: Tiêu chí đánh giá
+        - link "Quy trình đánh giá" [ref=e114] [cursor=pointer]:
+          - /url: /evaluation-progress
+          - generic [ref=e116]: 󰂽
+          - generic [ref=e118]: Quy trình đánh giá
+        - link "Danh sách đánh giá" [ref=e119] [cursor=pointer]:
+          - /url: /list-evaluation
+          - generic [ref=e121]: 󱙓
+          - generic [ref=e123]: Danh sách đánh giá
+        - separator [ref=e124]
+        - generic [ref=e127]: Khen thưởng
+        - link "Loại khen thưởng" [ref=e128] [cursor=pointer]:
+          - /url: /reward-type
+          - generic [ref=e130]: 󱆈
+          - generic [ref=e132]: Loại khen thưởng
+        - link "Khen thưởng nhân viên" [ref=e133] [cursor=pointer]:
+          - /url: /reward-user
+          - generic [ref=e135]: 󱆇
+          - generic [ref=e137]: Khen thưởng nhân viên
+        - separator [ref=e138]
+        - generic [ref=e141]: Chung
+        - link "Quản lý ngày phép năm" [ref=e142] [cursor=pointer]:
+          - /url: /leave-management
+          - generic [ref=e144]: 󱐫
+          - generic [ref=e146]: Quản lý ngày phép năm
+        - link "Đơn nghỉ phép" [ref=e147] [cursor=pointer]:
+          - /url: /leave-application
+          - generic [ref=e149]: 󱇗
+          - generic [ref=e151]: Đơn nghỉ phép
+        - link "Quản lý nghỉ lễ" [ref=e152] [cursor=pointer]:
+          - /url: /holiday-management
+          - generic [ref=e154]: 󱝾
+          - generic [ref=e156]: Quản lý nghỉ lễ
+        - link "Đơn thôi việc" [ref=e157] [cursor=pointer]:
+          - /url: /resignation
+          - generic [ref=e159]: 󱙏
+          - generic [ref=e161]: Đơn thôi việc
+        - link "Chi nhánh" [ref=e162] [cursor=pointer]:
+          - /url: /branch
+          - generic [ref=e164]: 󰦑
+          - generic [ref=e166]: Chi nhánh
+        - link "Bộ phận" [ref=e167] [cursor=pointer]:
+          - /url: /department
+          - generic [ref=e169]: 󰠦
+          - generic [ref=e171]: Bộ phận
+        - link "Chức vụ" [ref=e172] [cursor=pointer]:
+          - /url: /position
+          - generic [ref=e174]: 󰗘
+          - generic [ref=e176]: Chức vụ
+        - link "Cấp bậc" [ref=e177] [cursor=pointer]:
+          - /url: /level
+          - generic [ref=e179]: 󰕒
+          - generic [ref=e181]: Cấp bậc
+        - link "Nhóm" [ref=e182] [cursor=pointer]:
+          - /url: /team
+          - generic [ref=e184]: 󰷔
+          - generic [ref=e186]: Nhóm
+        - separator [ref=e187]
+        - generic [ref=e190]: Hợp đồng
+        - link "Hợp đồng" [ref=e191] [cursor=pointer]:
+          - /url: /contract
+          - generic [ref=e193]: 󰃗
+          - generic [ref=e195]: Hợp đồng
+        - link "Điều khoản" [ref=e196] [cursor=pointer]:
+          - /url: /term
+          - generic [ref=e198]: 󰪧
+          - generic [ref=e200]: Điều khoản
+        - link "Thống kê hợp đồng" [ref=e201] [cursor=pointer]:
+          - /url: /contract-statistic
+          - generic [ref=e203]: 󱉣
+          - generic [ref=e205]: Thống kê hợp đồng
+    - main [ref=e206]:
+      - generic [ref=e211]:
+        - generic [ref=e214]:
+          - generic [ref=e216]: Nhân viên
+          - button "Làm mới" [ref=e217] [cursor=pointer]:
+            - generic [ref=e218]:
+              - generic [ref=e219]: 󱎠
+              - text: Làm mới
+          - button "Thêm" [ref=e220] [cursor=pointer]:
+            - generic [ref=e221]:
+              - generic [ref=e222]: 󰐕
+              - text: Thêm
+          - button [ref=e223] [cursor=pointer]:
+            - generic [ref=e225]: 󱪤
+        - generic [ref=e228]:
+          - generic [ref=e233]:
+            - generic: Mã nhân viên
+            - textbox "Mã nhân viên Mã nhân viên" [ref=e235]
+          - generic [ref=e240]:
+            - generic: Tên nhân viên
+            - textbox "Tên nhân viên Tên nhân viên" [ref=e242]
+          - combobox [ref=e246] [cursor=pointer]:
+            - generic [ref=e247]:
+              - generic: Giới tính
+              - generic [ref=e248]:
+                - textbox "Open"
+            - generic [ref=e250]: 󰍝
+          - combobox [ref=e254] [cursor=pointer]:
+            - generic [ref=e255]:
+              - generic: Bộ phận
+              - generic [ref=e256]:
+                - textbox "Open"
+            - generic [ref=e258]: 󰍝
+          - combobox [ref=e262] [cursor=pointer]:
+            - generic [ref=e263]:
+              - generic: Nhóm
+              - generic [ref=e264]:
+                - textbox "Open"
+            - generic [ref=e266]: 󰍝
+          - combobox [ref=e270] [cursor=pointer]:
+            - generic [ref=e271]:
+              - generic: Đóng tiền đoàn phí công đoàn
+              - generic [ref=e272]:
+                - textbox "Open"
+            - generic [ref=e274]: 󰍝
+          - button "Tìm kiếm" [ref=e276] [cursor=pointer]:
+            - generic [ref=e277]:
+              - generic [ref=e278]: 󰒊
+              - text: Tìm kiếm
+          - button "Xóa" [ref=e280] [cursor=pointer]:
+            - generic [ref=e281]:
+              - generic [ref=e282]: 󰅖
+              - text: Xóa
+        - generic [ref=e283]:
+          - table [ref=e285]:
+            - rowgroup [ref=e286]:
+              - row "# Mã nhân viên Tên nhân viên Tên loại nhân viên Giới tính Bộ phận Nhóm Thâm niên Trạng thái Đóng tiền đoàn phí công đoàn" [ref=e287]:
+                - columnheader "#" [ref=e288]:
+                  - generic [ref=e289]: "#"
+                - columnheader "Mã nhân viên" [ref=e290]:
+                  - generic [ref=e291]: Mã nhân viên
+                - columnheader "Tên nhân viên" [ref=e292] [cursor=pointer]:
+                  - generic [ref=e294]: Tên nhân viên
+                - columnheader "Tên loại nhân viên" [ref=e296]:
+                  - generic [ref=e297]: Tên loại nhân viên
+                - columnheader "Giới tính" [ref=e298]:
+                  - generic [ref=e299]: Giới tính
+                - columnheader "Bộ phận" [ref=e300]:
+                  - generic [ref=e301]: Bộ phận
+                - columnheader "Nhóm" [ref=e302]:
+                  - generic [ref=e303]: Nhóm
+                - columnheader "Thâm niên" [ref=e304]:
+                  - generic [ref=e305]: Thâm niên
+                - columnheader "Trạng thái" [ref=e306] [cursor=pointer]:
+                  - generic [ref=e308]: Trạng thái
+                - columnheader "Đóng tiền đoàn phí công đoàn" [ref=e310]:
+                  - generic [ref=e311]: Đóng tiền đoàn phí công đoàn
+            - rowgroup [ref=e312]:
+              - row "1 123 Nhân viên nhân sự Nhân viên (Nhân sự - Nhân sự ) Nữ Nhân sự Nhân sự Hoạt động" [ref=e313]:
+                - cell "1" [ref=e314]
+                - cell "123" [ref=e315]
+                - cell "Nhân viên nhân sự" [ref=e316]
+                - cell "Nhân viên (Nhân sự - Nhân sự )" [ref=e317]:
+                  - generic [ref=e320]: Nhân viên (Nhân sự - Nhân sự )
+                - cell "Nữ" [ref=e321]:
+                  - generic [ref=e322]: Nữ
+                - cell "Nhân sự" [ref=e323]
+                - cell "Nhân sự" [ref=e324]
+                - cell [ref=e325]
+                - cell "Hoạt động" [ref=e326]:
+                  - generic [ref=e328]: Hoạt động
+                - cell [ref=e329]:
+                  - generic [ref=e334]:
+                    - generic [ref=e335]: 󰄱
+                    - checkbox [ref=e336] [cursor=pointer]
+              - row "2 LOGIN_EMP_001 Login Staff Nhân viên (Dịch vụ - Dịch vụ ) Nữ Dịch vụ Dịch vụ Hoạt động" [ref=e337]:
+                - cell "2" [ref=e338]
+                - cell "LOGIN_EMP_001" [ref=e339]
+                - cell "Login Staff" [ref=e340]
+                - cell "Nhân viên (Dịch vụ - Dịch vụ )" [ref=e341]:
+                  - generic [ref=e344]: Nhân viên (Dịch vụ - Dịch vụ )
+                - cell "Nữ" [ref=e345]:
+                  - generic [ref=e346]: Nữ
+                - cell "Dịch vụ" [ref=e347]
+                - cell "Dịch vụ" [ref=e348]
+                - cell [ref=e349]
+                - cell "Hoạt động" [ref=e350]:
+                  - generic [ref=e352]: Hoạt động
+                - cell [ref=e353]:
+                  - generic [ref=e358]:
+                    - generic [ref=e359]: 󰄱
+                    - checkbox [ref=e360] [cursor=pointer]
+              - row "3 004 Phan Thành Long Nhân viên (Dịch vụ - Dịch vụ ) Nam Dịch vụ Dịch vụ Hoạt động" [ref=e361]:
+                - cell "3" [ref=e362]
+                - cell "004" [ref=e363]
+                - cell "Phan Thành Long" [ref=e364]
+                - cell "Nhân viên (Dịch vụ - Dịch vụ )" [ref=e365]:
+                  - generic [ref=e368]: Nhân viên (Dịch vụ - Dịch vụ )
+                - cell "Nam" [ref=e369]:
+                  - generic [ref=e370]: Nam
+                - cell "Dịch vụ" [ref=e371]
+                - cell "Dịch vụ" [ref=e372]
+                - cell [ref=e373]
+                - cell "Hoạt động" [ref=e374]:
+                  - generic [ref=e376]: Hoạt động
+                - cell [ref=e377]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]: 󰄱
+                    - checkbox [ref=e384] [cursor=pointer]
+          - generic [ref=e386]:
+            - generic [ref=e387]: Tổng
+            - text: 3,
+            - generic [ref=e388]: Hiển thị
+            - combobox [ref=e391] [cursor=pointer]:
+              - generic [ref=e393]:
+                - generic [ref=e395]: "20"
+                - textbox "Open": "20"
+              - generic [ref=e397]: 󰍝
+            - navigation "Pagination Navigation" [ref=e398]:
+              - list [ref=e399]:
+                - listitem [ref=e400]:
+                  - button "Previous page" [disabled]:
+                    - generic:
+                      - generic: 󰅁
+                - listitem [ref=e401]:
+                  - button "Page 1, Current page" [disabled]:
+                    - generic: "1"
+                - listitem [ref=e402]:
+                  - button "Next page" [disabled]:
+                    - generic:
+                      - generic: 󰅂
+  - generic:
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - tooltip
+    - dialog:
+      - generic [ref=e406]:
+        - generic [ref=e407]:
+          - generic [ref=e408]: Thêm nhân viên
+          - tablist [ref=e409]:
+            - generic [ref=e411]:
+              - tab "Thông tin cá nhân" [selected] [ref=e412] [cursor=pointer]:
+                - generic [ref=e413]: Thông tin cá nhân
+              - tab "Thông tin gia đình" [ref=e414] [cursor=pointer]:
+                - generic [ref=e415]: Thông tin gia đình
+              - tab "Thiết lập lương" [ref=e416] [cursor=pointer]:
+                - generic [ref=e417]: Thiết lập lương
+        - generic [ref=e424]:
+          - alert [ref=e427]:
+            - generic [ref=e429]: 󰀨
+            - list [ref=e431]:
+              - listitem [ref=e432]: Địa chỉ email đã tồn tại.
+              - listitem [ref=e433]: Mã nhân viên đã tồn tại.
+          - generic [ref=e434]:
+            - generic [ref=e436]:
+              - generic [ref=e439]: Thông tin cá nhân
+              - generic [ref=e441]:
+                - generic [ref=e447]:
+                  - generic [ref=e448]:
+                    - generic [ref=e449]: Hình
+                    - generic [ref=e452] [cursor=pointer]:
+                      - img [ref=e457]
+                      - status "Badge" [ref=e458]:
+                        - generic [ref=e459]: 󰅖
+                  - text: 󰄀 󰅙
+                - generic [ref=e463]:
+                  - generic [ref=e467]:
+                    - textbox "Mã nhân viên ※ Mã nhân viên ※" [ref=e470]: LOGIN_EMP_001
+                    - generic:
+                      - generic:
+                        - generic: Mã nhân viên ※
+                  - generic [ref=e474]:
+                    - textbox "Tên nhân viên ※ Tên nhân viên ※" [ref=e477]: Login Staff
+                    - generic:
+                      - generic:
+                        - generic: Tên nhân viên ※
+                  - generic [ref=e479]:
+                    - generic [ref=e480]: Giới tính
+                    - radiogroup [ref=e483]:
+                      - generic [ref=e484]:
+                        - generic [ref=e486]:
+                          - generic [ref=e487]: 󰐽
+                          - radio "Nam" [ref=e488] [cursor=pointer]
+                        - generic [ref=e489] [cursor=pointer]: Nam
+                      - generic [ref=e490]:
+                        - generic [ref=e492]:
+                          - generic [ref=e493]: 󰐾
+                          - radio "Nữ" [checked] [ref=e494] [cursor=pointer]
+                        - generic [ref=e495] [cursor=pointer]: Nữ
+                  - generic [ref=e497]:
+                    - generic [ref=e501]:
+                      - textbox "Email ※ Email ※" [ref=e503]: loginemp001
+                      - generic:
+                        - generic:
+                          - generic: Email ※
+                    - combobox [ref=e507] [cursor=pointer]:
+                      - generic [ref=e509]:
+                        - generic [ref=e511]: "@gmail.com"
+                        - textbox "Open": "0"
+                      - generic [ref=e513]: 󰍝
+                  - combobox [ref=e517]:
+                    - generic [ref=e519]:
+                      - generic [ref=e521]: Bình dương
+                      - textbox "Tên chi nhánh ※ Tên chi nhánh ※" [ref=e522]
+                    - button "Open" [ref=e524] [cursor=pointer]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Tên chi nhánh ※
+                  - generic [ref=e529]:
+                    - generic [ref=e531]:
+                      - generic [ref=e532]: 󰄲
+                      - checkbox "Cho phép chấm công trực tuyến" [checked] [ref=e533] [cursor=pointer]
+                    - generic [ref=e534] [cursor=pointer]: Cho phép chấm công trực tuyến
+                  - generic [ref=e538]:
+                    - generic [ref=e540]: 󰌾
+                    - textbox "Nhập mật khẩu ※ Nhập mật khẩu ※" [ref=e542]: "123456"
+                    - button "appended action" [ref=e544] [cursor=pointer]: 󰈉
+                    - generic:
+                      - generic:
+                        - generic: Nhập mật khẩu ※
+                  - button [ref=e547] [cursor=pointer]:
+                    - generic [ref=e549]: 󰝳
+                  - generic [ref=e553]:
+                    - generic [ref=e555]: 󱎚
+                    - textbox "Nhập lại mật khẩu ※ Nhập lại mật khẩu ※" [ref=e557]: "123456"
+                    - button "appended action" [ref=e559] [cursor=pointer]: 󰈉
+                    - generic:
+                      - generic:
+                        - generic: Nhập lại mật khẩu ※
+                  - generic [ref=e564]:
+                    - generic [ref=e566]:
+                      - generic [ref=e567]: 󰄲
+                      - checkbox "Chỉ cần điểm danh ít nhất 1 lần trong ngày" [checked] [ref=e568] [cursor=pointer]
+                    - generic [ref=e569] [cursor=pointer]: Chỉ cần điểm danh ít nhất 1 lần trong ngày
+                  - generic [ref=e574]:
+                    - generic [ref=e576]:
+                      - generic [ref=e577]: 󰄱
+                      - checkbox "Chỉ cần điểm danh ít nhất 1 lần khi vào ca" [ref=e578] [cursor=pointer]
+                    - generic [ref=e579] [cursor=pointer]: Chỉ cần điểm danh ít nhất 1 lần khi vào ca
+                  - combobox [ref=e583]:
+                    - generic [ref=e585]:
+                      - generic [ref=e587]: Dịch vụ
+                      - textbox "Thuộc bộ phận ※ Thuộc bộ phận ※" [ref=e588]: Dịch vụ
+                    - button "Clear" [ref=e590] [cursor=pointer]: 󰅙
+                    - button "Open" [ref=e592] [cursor=pointer]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Thuộc bộ phận ※
+                  - combobox [ref=e596]:
+                    - generic [ref=e598]:
+                      - generic [ref=e600]: Dịch vụ
+                      - textbox "Tên nhóm ※ Tên nhóm ※" [ref=e601]
+                    - button "Clear" [ref=e603] [cursor=pointer]: 󰅙
+                    - button "Open" [ref=e605] [cursor=pointer]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Tên nhóm ※
+                  - combobox [ref=e609]:
+                    - generic [ref=e611]:
+                      - generic [ref=e613]: Nhân viên
+                      - textbox "Loại nhân viên ※ Loại nhân viên ※" [ref=e614]: Nhân viên
+                    - button "Open" [ref=e616] [cursor=pointer]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Loại nhân viên ※
+                  - combobox [ref=e620]:
+                    - generic [ref=e622]:
+                      - generic [ref=e624]: Nhân viên
+                      - textbox "Tên quyền ※ Tên quyền ※" [ref=e625]
+                    - button "Open" [ref=e627] [cursor=pointer]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Tên quyền ※
+                  - combobox [ref=e631] [cursor=pointer]:
+                    - generic [ref=e633]:
+                      - generic [ref=e635]: Đang làm
+                      - textbox "Open": "1"
+                    - generic [ref=e637]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Trạng thái làm việc
+                  - combobox [ref=e641] [cursor=pointer]:
+                    - generic [ref=e643]: 󱚎
+                    - generic [ref=e645]:
+                      - generic [ref=e647]: Hoạt động
+                      - textbox "Open": "1"
+                    - generic [ref=e649]: 󰍝
+                    - generic:
+                      - generic:
+                        - generic: Trạng thái
+            - generic [ref=e654]:
+              - button "Thông tin thêm" [expanded] [ref=e656] [cursor=pointer]:
+                - text: Thông tin thêm
+                - generic [ref=e659]: 󰅃
+              - generic [ref=e663]:
+                - generic [ref=e665]:
+                  - generic [ref=e668]: Thông tin công việc
+                  - generic [ref=e670]:
+                    - combobox [ref=e674]:
+                      - generic [ref=e675]:
+                        - generic: Tên chức vụ
+                        - textbox "Tên chức vụ Tên chức vụ" [ref=e677]
+                      - button "Open" [ref=e679] [cursor=pointer]: 󰍝
+                    - combobox [ref=e683]:
+                      - generic [ref=e684]:
+                        - generic: Tên cấp bậc
+                        - textbox "Tên cấp bậc Tên cấp bậc" [ref=e686]
+                      - button "Open" [ref=e688] [cursor=pointer]: 󰍝
+                - generic [ref=e690]:
+                  - generic [ref=e693]: Thông tin khác
+                  - generic [ref=e695]:
+                    - generic [ref=e700]:
+                      - generic: CCCD
+                      - spinbutton "CCCD CCCD" [ref=e702]
+                    - generic [ref=e710]:
+                      - generic [ref=e712]: 󰃳
+                      - generic [ref=e713]:
+                        - generic:
+                          - generic: Ngày cấp CCCD
+                        - textbox "Ngày cấp CCCD Ngày cấp CCCD" [ref=e714]
+                    - generic [ref=e719]:
+                      - generic: Nơi cấp CCCD
+                      - textbox "Nơi cấp CCCD Nơi cấp CCCD" [ref=e721]
+                    - generic [ref=e726]:
+                      - generic: Tên ngân hàng
+                      - textbox "Tên ngân hàng Tên ngân hàng" [ref=e728]
+                    - generic [ref=e733]:
+                      - generic: Số tài khoản ngân hàng
+                      - spinbutton "Số tài khoản ngân hàng Số tài khoản ngân hàng" [ref=e735]
+                - generic [ref=e739]:
+                  - generic [ref=e744]:
+                    - generic: Số điện thoại
+                    - spinbutton "Số điện thoại Số điện thoại" [ref=e746]
+                  - generic [ref=e754]:
+                    - generic [ref=e756]: 󰃳
+                    - generic [ref=e757]:
+                      - generic:
+                        - generic: Ngày sinh
+                      - textbox "Ngày sinh Ngày sinh" [ref=e758]
+                  - generic [ref=e766]:
+                    - generic [ref=e768]: 󰃳
+                    - generic [ref=e769]:
+                      - generic:
+                        - generic: Ngày vào công ty
+                      - textbox "Ngày vào công ty Ngày vào công ty" [ref=e770]
+                  - generic [ref=e775]:
+                    - generic: Mã số thuế
+                    - spinbutton "Mã số thuế Mã số thuế" [ref=e777]
+                  - generic [ref=e782]:
+                    - generic: Địa chỉ
+                    - textbox "Địa chỉ Địa chỉ" [ref=e784]
+                  - generic [ref=e789]:
+                    - generic: Ghi chú
+                    - textbox "Ghi chú Ghi chú" [ref=e791]
+        - generic [ref=e792]:
+          - button "Lưu" [ref=e793] [cursor=pointer]:
+            - generic [ref=e794]:
+              - generic [ref=e795]: 󰄬
+              - text: Lưu
+          - button "Hủy" [ref=e796] [cursor=pointer]:
+            - generic [ref=e797]:
+              - generic [ref=e798]: 󰅖
+              - text: Hủy
+```

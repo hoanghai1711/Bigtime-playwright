@@ -1,0 +1,1 @@
+Cleared 5 rows in users with condition: code LIKE '%AUTO_EMP_%'.

@@ -30,13 +30,13 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
+          URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
           EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
           EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
-          EMPLOYEE2_USERNAME: ${{ secrets.EMPLOYEE2_USERNAME }}
-          EMPLOYEE2_PASSWORD: ${{ secrets.EMPLOYEE2_PASSWORD }}
-          MANAGER_TEAM_USERNAME: ${{ secrets.MANAGER_TEAM_USERNAME }}
-          MANAGER_TEAM_PASSWORD: ${{ secrets.MANAGER_TEAM_PASSWORD }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          # MANAGER_TEAM_USERNAME: ${{ secrets.MANAGER_TEAM_USERNAME }}
+          # MANAGER_TEAM_PASSWORD: ${{ secrets.MANAGER_TEAM_PASSWORD }}
 
       - name: Generate Allure report
         run: |
