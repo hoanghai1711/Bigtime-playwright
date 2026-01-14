@@ -1,0 +1,402 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - generic [ref=e10]: 󰍜
+        - text: 󰼬
+        - generic [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Admin Bigtime - System
+          - generic [ref=e15]:
+            - button "Quản lý" [ref=e16]:
+              - generic [ref=e17]:
+                - generic [ref=e18]: 󰳣
+                - paragraph [ref=e19]: Quản lý
+            - button "Chấm công" [ref=e20]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: 󱤤
+                - paragraph [ref=e23]: Chấm công
+            - button "Lương" [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 󱃣
+                - paragraph [ref=e27]: Lương
+            - button "Cài đặt" [ref=e28]:
+              - generic [ref=e29]:
+                - generic [ref=e30]: 󰣖
+                - paragraph [ref=e31]: Cài đặt
+        - generic [ref=e34] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e40]: admin
+        - button "Badge" [ref=e41] [cursor=pointer]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 󰂜
+            - status "Badge" [ref=e46]
+        - button [ref=e47] [cursor=pointer]:
+          - generic [ref=e49]: 󰊓
+        - button "Đăng xuất" [ref=e50] [cursor=pointer]:
+          - generic [ref=e52]: Đăng xuất
+          - generic [ref=e54]: 󰍂
+    - banner [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e58]: Version 1.2.18
+        - list [ref=e59]:
+          - listitem "English" [ref=e60] [cursor=pointer]:
+            - img [ref=e62]
+          - listitem "Tiếng Việt" [ref=e63] [cursor=pointer]:
+            - img [ref=e65]
+        - button [ref=e66] [cursor=pointer]:
+          - generic [ref=e68]: 󰖙
+    - navigation [ref=e69]:
+      - listbox [ref=e71]:
+        - link "Trung tâm" [ref=e72] [cursor=pointer]:
+          - /url: /dashboard-admin
+          - generic [ref=e74]: 󰨇
+          - generic [ref=e76]: Trung tâm
+        - separator [ref=e77]
+        - generic [ref=e80]: Quản lý nhân viên
+        - link "Nhân viên" [ref=e81] [cursor=pointer]:
+          - /url: /user
+          - generic [ref=e83]: 󰳣
+          - generic [ref=e85]: Nhân viên
+        - separator [ref=e86]
+        - generic [ref=e89]: Thông báo
+        - link "Quản lý thông báo" [ref=e90] [cursor=pointer]:
+          - /url: /notification
+          - generic [ref=e92]: 󱥂
+          - generic [ref=e94]: Quản lý thông báo
+        - link "Danh sách thông báo" [ref=e95] [cursor=pointer]:
+          - /url: /list-notification
+          - generic [ref=e97]: 󰂜
+          - generic [ref=e99]: Danh sách thông báo
+        - separator [ref=e100]
+        - generic [ref=e103]: Đánh giá
+        - link "Loại đánh giá" [ref=e104] [cursor=pointer]:
+          - /url: /evaluation-type
+          - generic [ref=e106]: 󰹕
+          - generic [ref=e108]: Loại đánh giá
+        - link "Tiêu chí đánh giá" [ref=e109] [cursor=pointer]:
+          - /url: /evaluation-criteria
+          - generic [ref=e111]: 󱓶
+          - generic [ref=e113]: Tiêu chí đánh giá
+        - link "Quy trình đánh giá" [ref=e114] [cursor=pointer]:
+          - /url: /evaluation-progress
+          - generic [ref=e116]: 󰂽
+          - generic [ref=e118]: Quy trình đánh giá
+        - link "Danh sách đánh giá" [ref=e119] [cursor=pointer]:
+          - /url: /list-evaluation
+          - generic [ref=e121]: 󱙓
+          - generic [ref=e123]: Danh sách đánh giá
+        - separator [ref=e124]
+        - generic [ref=e127]: Khen thưởng
+        - link "Loại khen thưởng" [ref=e128] [cursor=pointer]:
+          - /url: /reward-type
+          - generic [ref=e130]: 󱆈
+          - generic [ref=e132]: Loại khen thưởng
+        - link "Khen thưởng nhân viên" [ref=e133] [cursor=pointer]:
+          - /url: /reward-user
+          - generic [ref=e135]: 󱆇
+          - generic [ref=e137]: Khen thưởng nhân viên
+        - separator [ref=e138]
+        - generic [ref=e141]: Chung
+        - link "Quản lý ngày phép năm" [ref=e142] [cursor=pointer]:
+          - /url: /leave-management
+          - generic [ref=e144]: 󱐫
+          - generic [ref=e146]: Quản lý ngày phép năm
+        - link "Đơn nghỉ phép" [ref=e147] [cursor=pointer]:
+          - /url: /leave-application
+          - generic [ref=e149]: 󱇗
+          - generic [ref=e151]: Đơn nghỉ phép
+        - link "Quản lý nghỉ lễ" [ref=e152] [cursor=pointer]:
+          - /url: /holiday-management
+          - generic [ref=e154]: 󱝾
+          - generic [ref=e156]: Quản lý nghỉ lễ
+        - link "Đơn thôi việc" [ref=e157] [cursor=pointer]:
+          - /url: /resignation
+          - generic [ref=e159]: 󱙏
+          - generic [ref=e161]: Đơn thôi việc
+        - link "Chi nhánh" [ref=e162] [cursor=pointer]:
+          - /url: /branch
+          - generic [ref=e164]: 󰦑
+          - generic [ref=e166]: Chi nhánh
+        - link "Bộ phận" [ref=e167] [cursor=pointer]:
+          - /url: /department
+          - generic [ref=e169]: 󰠦
+          - generic [ref=e171]: Bộ phận
+        - link "Chức vụ" [ref=e172] [cursor=pointer]:
+          - /url: /position
+          - generic [ref=e174]: 󰗘
+          - generic [ref=e176]: Chức vụ
+        - link "Cấp bậc" [ref=e177] [cursor=pointer]:
+          - /url: /level
+          - generic [ref=e179]: 󰕒
+          - generic [ref=e181]: Cấp bậc
+        - link "Nhóm" [ref=e182] [cursor=pointer]:
+          - /url: /team
+          - generic [ref=e184]: 󰷔
+          - generic [ref=e186]: Nhóm
+        - separator [ref=e187]
+        - generic [ref=e190]: Hợp đồng
+        - link "Hợp đồng" [ref=e191] [cursor=pointer]:
+          - /url: /contract
+          - generic [ref=e193]: 󰃗
+          - generic [ref=e195]: Hợp đồng
+        - link "Điều khoản" [ref=e196] [cursor=pointer]:
+          - /url: /term
+          - generic [ref=e198]: 󰪧
+          - generic [ref=e200]: Điều khoản
+        - link "Thống kê hợp đồng" [ref=e201] [cursor=pointer]:
+          - /url: /contract-statistic
+          - generic [ref=e203]: 󱉣
+          - generic [ref=e205]: Thống kê hợp đồng
+    - main [ref=e206]:
+      - generic [ref=e211]:
+        - generic [ref=e214]:
+          - generic [ref=e217]:
+            - generic [ref=e278]: "1"
+            - generic [ref=e279]: "2"
+            - generic [ref=e280]: "3"
+            - generic [ref=e281]: "4"
+            - generic [ref=e282]: "5"
+            - generic [ref=e283]: "6"
+            - generic [ref=e284]: "7"
+            - generic [ref=e285]: "8"
+            - generic [ref=e286]: "9"
+            - generic [ref=e287]: "10"
+            - generic [ref=e288]: "11"
+            - generic [ref=e289]: "12"
+          - generic [ref=e294]:
+            - generic [ref=e295]:
+              - paragraph [ref=e296]:
+                - strong [ref=e297]:
+                  - generic [ref=e298]: 󰦑
+                  - text: "Thuộc chi nhánh:"
+                - text: (Trống) |
+              - paragraph [ref=e299]:
+                - strong [ref=e300]:
+                  - generic [ref=e301]: 󰠦
+                  - text: "Thuộc bộ phận:"
+                - text: (Trống) |
+              - paragraph [ref=e302]:
+                - strong [ref=e303]:
+                  - generic [ref=e304]: 󰭘
+                  - text: "Thuộc nhóm:"
+                - text: (Trống)
+              - separator [ref=e305]
+            - generic [ref=e306]:
+              - paragraph [ref=e307]:
+                - strong [ref=e308]:
+                  - generic [ref=e309]: 󰕒
+                  - text: "Cấp bậc:"
+                - text: (Trống) |
+              - paragraph [ref=e310]:
+                - strong [ref=e311]:
+                  - generic [ref=e312]: 󰗘
+                  - text: "Chức vụ:"
+                - text: (Trống)
+              - separator [ref=e313]
+            - generic [ref=e314]:
+              - paragraph [ref=e315]:
+                - strong [ref=e316]:
+                  - generic [ref=e317]: 󰠀
+                  - text: "Ngày vào công ty:"
+                - text: 11-01-2025
+              - separator [ref=e318]
+            - generic [ref=e319]:
+              - paragraph [ref=e320]:
+                - strong [ref=e321]:
+                  - generic [ref=e322]: 󰞌
+                  - text: "Lần cuối đăng nhập:"
+                - text: 14-01-2026 08:30
+              - separator [ref=e323]
+            - generic [ref=e324]:
+              - generic [ref=e325]:
+                - paragraph [ref=e326]:
+                  - strong [ref=e327]:
+                    - generic [ref=e328]: 󰺘
+                    - text: "Liên hệ:"
+                - link "admin@gmail.com" [ref=e329] [cursor=pointer]:
+                  - /url: "mailto:{{ userStore.currentUser?.email }}"
+              - generic [ref=e330]:
+                - paragraph [ref=e331]:
+                  - strong [ref=e332]:
+                    - generic [ref=e333]: 󰏲
+                    - text: "SĐT:"
+                - link "08597233333" [ref=e334] [cursor=pointer]:
+                  - /url: "tel:{{ userStore.currentUser?.phone }}"
+              - separator [ref=e335]
+            - link "Thông tin cá nhân" [ref=e337] [cursor=pointer]:
+              - /url: /user/info
+              - generic [ref=e339]: 󰶧
+              - paragraph [ref=e341]: Thông tin cá nhân
+        - generic [ref=e342]:
+          - generic [ref=e347]: Số liệu
+          - generic [ref=e359]:
+            - generic [ref=e360]:
+              - generic [ref=e362]:
+                - generic [ref=e363]: Đơn thôi việc
+                - generic [ref=e365]:
+                  - generic [ref=e366]:
+                    - generic [ref=e368]: "Mới tạo : 0"
+                    - generic [ref=e370]: "Đã gửi : 0"
+                    - generic [ref=e372]: "Đã duyệt : 0"
+                    - generic [ref=e374]: "Từ chối : 0"
+                    - generic [ref=e376]: "Hủy : 0"
+                  - generic [ref=e381]:
+                    - generic [ref=e382]: 󱙀
+                    - generic [ref=e383]: Không có dữ liệu
+                  - button "Xem thêm" [ref=e385] [cursor=pointer]:
+                    - generic [ref=e386]: Xem thêm
+              - generic [ref=e388]:
+                - generic [ref=e389]: Phép năm
+                - generic [ref=e391]:
+                  - generic [ref=e392]:
+                    - generic [ref=e394]: "Số ngày nghỉ : 0"
+                    - generic [ref=e396]: "Số ngày đã sử dụng : 0"
+                  - generic [ref=e401]:
+                    - generic [ref=e402]: 󱙀
+                    - generic [ref=e403]: Không có dữ liệu
+                  - button "Xem thêm" [ref=e405] [cursor=pointer]:
+                    - generic [ref=e406]: Xem thêm
+              - generic [ref=e408]:
+                - generic [ref=e409]: Đơn nghỉ phép
+                - generic [ref=e411]:
+                  - generic [ref=e412]:
+                    - generic [ref=e414]: "Mới : 0"
+                    - generic [ref=e416]: "Gửi duyệt : 0"
+                    - generic [ref=e418]: "Đã duyệt : 0"
+                    - generic [ref=e420]: "Từ chối : 0"
+                    - generic [ref=e422]: "Hủy : 0"
+                  - generic [ref=e427]:
+                    - generic [ref=e428]: 󱙀
+                    - generic [ref=e429]: Không có dữ liệu
+                  - button "Xem thêm" [ref=e431] [cursor=pointer]:
+                    - generic [ref=e432]: Xem thêm
+            - generic [ref=e435]:
+              - generic [ref=e436]: Nhân viên đang hoạt động
+              - table [ref=e440]:
+                - rowgroup [ref=e441]:
+                  - row:
+                    - cell
+                  - row "BAT0000 admin Hoạt động" [ref=e442]:
+                    - cell "BAT0000 admin" [ref=e443]:
+                      - generic [ref=e447]:
+                        - generic [ref=e448]: BAT0000
+                        - generic [ref=e449]: admin
+                    - cell "Hoạt động" [ref=e450]:
+                      - generic [ref=e452]:
+                        - generic [ref=e453]: 󱬊
+                        - text: Hoạt động
+                  - row:
+                    - cell
+        - generic [ref=e454]:
+          - generic [ref=e456]:
+            - generic [ref=e457]: Danh sách hợp đồng thao tác gần nhất
+            - table [ref=e461]:
+              - rowgroup [ref=e462]:
+                - row "Mã hợp đồng Nhân viên Loại hợp đồng Ngày bắt đầu Ngày kết thúc Trạng thái" [ref=e463]:
+                  - columnheader "Mã hợp đồng" [ref=e464]:
+                    - generic [ref=e466]: Mã hợp đồng
+                  - columnheader "Nhân viên" [ref=e467]:
+                    - generic [ref=e468]:
+                      - generic [ref=e469]: Nhân viên
+                      - generic [ref=e470]: 󰍝
+                  - columnheader "Loại hợp đồng" [ref=e471]:
+                    - generic [ref=e473]: Loại hợp đồng
+                  - columnheader "Ngày bắt đầu" [ref=e474]:
+                    - generic [ref=e476]: Ngày bắt đầu
+                  - columnheader "Ngày kết thúc" [ref=e477]:
+                    - generic [ref=e479]: Ngày kết thúc
+                  - columnheader "Trạng thái" [ref=e480]:
+                    - generic [ref=e482]: Trạng thái
+              - rowgroup [ref=e483]:
+                - row:
+                  - cell
+                - row "Không có dữ liệu" [ref=e484]:
+                  - cell "Không có dữ liệu" [ref=e485]:
+                    - generic [ref=e486]: Không có dữ liệu
+                - row:
+                  - cell
+          - generic [ref=e488]:
+            - generic [ref=e489]: Danh sách nhân viên thao tác gần nhất
+            - table [ref=e493]:
+              - rowgroup [ref=e494]:
+                - row "Mã nhân viên Nhân viên Email Số điện thoại Thời gian login" [ref=e495]:
+                  - columnheader "Mã nhân viên" [ref=e496]:
+                    - generic [ref=e498]: Mã nhân viên
+                  - columnheader "Nhân viên" [ref=e499]:
+                    - generic [ref=e500]:
+                      - generic [ref=e501]: Nhân viên
+                      - generic [ref=e502]: 󰍝
+                  - columnheader "Email" [ref=e503]:
+                    - generic [ref=e505]: Email
+                  - columnheader "Số điện thoại" [ref=e506]:
+                    - generic [ref=e508]: Số điện thoại
+                  - columnheader "Thời gian login" [ref=e509]:
+                    - generic [ref=e511]: Thời gian login
+              - rowgroup [ref=e512]:
+                - row:
+                  - cell
+                - row "123 Nhân viên nhân sự nhansu@gmail.com 14-01-2026 08:29" [ref=e513]:
+                  - cell "123" [ref=e514]
+                  - cell "Nhân viên nhân sự" [ref=e515]:
+                    - generic [ref=e516]: Nhân viên nhân sự
+                  - cell "nhansu@gmail.com" [ref=e517]
+                  - cell [ref=e518]
+                  - cell "14-01-2026 08:29" [ref=e519]
+                - row "LOGIN_EMP_001 Login Staff loginemp001@gmail.com 14-01-2026 08:24" [ref=e520]:
+                  - cell "LOGIN_EMP_001" [ref=e521]
+                  - cell "Login Staff" [ref=e522]:
+                    - generic [ref=e523]: Login Staff
+                  - cell "loginemp001@gmail.com" [ref=e524]
+                  - cell [ref=e525]
+                  - cell "14-01-2026 08:24" [ref=e526]
+                - row "AUTO_EMP_005 Basic Staff hello1323@gmail.com" [ref=e527]:
+                  - cell "AUTO_EMP_005" [ref=e528]
+                  - cell "Basic Staff" [ref=e529]:
+                    - generic [ref=e530]: Basic Staff
+                  - cell "hello1323@gmail.com" [ref=e531]
+                  - cell [ref=e532]
+                  - cell [ref=e533]
+                - row "AUTO_EMP_004 Resigned Staff hell1o123@gmail.com" [ref=e534]:
+                  - cell "AUTO_EMP_004" [ref=e535]
+                  - cell "Resigned Staff" [ref=e536]:
+                    - generic [ref=e537]: Resigned Staff
+                  - cell "hell1o123@gmail.com" [ref=e538]
+                  - cell [ref=e539]
+                  - cell [ref=e540]
+                - row "AUTO_EMP_003 Working Staff hello1123@gmail.com" [ref=e541]:
+                  - cell "AUTO_EMP_003" [ref=e542]
+                  - cell "Working Staff" [ref=e543]:
+                    - generic [ref=e544]: Working Staff
+                  - cell "hello1123@gmail.com" [ref=e545]
+                  - cell [ref=e546]
+                  - cell [ref=e547]
+                - row "AUTO_EMP_002 Manager A hello123@gmail.com" [ref=e548]:
+                  - cell "AUTO_EMP_002" [ref=e549]
+                  - cell "Manager A" [ref=e550]:
+                    - generic [ref=e551]: Manager A
+                  - cell "hello123@gmail.com" [ref=e552]
+                  - cell [ref=e553]
+                  - cell [ref=e554]
+                - row "AUTO_EMP_001 Staff A hello0123@gmail.com" [ref=e555]:
+                  - cell "AUTO_EMP_001" [ref=e556]
+                  - cell "Staff A" [ref=e557]:
+                    - generic [ref=e558]: Staff A
+                  - cell "hello0123@gmail.com" [ref=e559]
+                  - cell [ref=e560]
+                  - cell [ref=e561]
+                - row "004 Phan Thành Long long.thanhphan04@gmail.com 13-01-2026 22:37" [ref=e562]:
+                  - cell "004" [ref=e563]
+                  - cell "Phan Thành Long" [ref=e564]:
+                    - generic [ref=e565]: Phan Thành Long
+                  - cell "long.thanhphan04@gmail.com" [ref=e566]
+                  - cell [ref=e567]
+                  - cell "13-01-2026 22:37" [ref=e568]
+                - row:
+                  - cell
+  - generic:
+    - tooltip
+```

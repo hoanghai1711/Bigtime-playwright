@@ -4,6 +4,7 @@ import { LeaveManagementPage } from '../../page/leave/leave-managementPage';
 import { ToastPage } from '../../page/toastPage';
 import { allure } from 'allure-playwright';
 import { LeaveApplication } from '../../page/leave/leave-applicationPage';
+import { clearTable } from '../../db/core/DBUtils';
 
 test.describe.serial('leave application', () => {
   let loginPage: LoginPage;
@@ -32,7 +33,9 @@ test.describe.serial('leave application', () => {
       });
     }
   });
-  
+  test.beforeAll(async () => {
+    clearTable('leave_applications', "reason IN ('abc')")
+  })
 
   // Tạo đơn nghỉ phép thành công với thông tin hợp lệ
   test('Leave request successfully created with valid information', async () => {
@@ -46,16 +49,17 @@ test.describe.serial('leave application', () => {
       await leaveApplication.clickStatus();
       await leaveApplication.selectOption('Chờ duyệt');
       await leaveApplication.clickFormDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '1');
+      await leaveApplication.selectDate('2026', 'Thg 1', '15');
       await leaveApplication.clickSave();
       await leaveApplication.clickToDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '2');
+      await leaveApplication.selectDate('2026', 'Thg 1', '16');
       await leaveApplication.clickSave();
       await leaveApplication.clickSaveFrom();
       await toastPage.verifyToastMessage('Thêm thành công')
       await leaveApplication.sreachStatus('Chờ duyệt');
       await leaveApplication.sreachDatePicker('2026', 'Thg 1');
       await leaveApplication.validateData('Chờ duyệt');
+      
     });
   });
 
@@ -71,10 +75,10 @@ test.describe.serial('leave application', () => {
       await leaveApplication.clickStatus();
       await leaveApplication.selectOption('Chờ duyệt');
       await leaveApplication.clickFormDate();
-      await leaveApplication.selectDate('2027', 'Thg 1', '4');
+      await leaveApplication.selectDate('2027', 'Thg 2', '16');
       await leaveApplication.clickSave();
       await leaveApplication.clickToDate();
-      await leaveApplication.selectDate('2027', 'Thg 1', '5');
+      await leaveApplication.selectDate('2027', 'Thg 2', '17');
       await leaveApplication.clickSave();
       await leaveApplication.clickSaveFrom();
       await leaveApplication.validateNoleave();
@@ -93,11 +97,11 @@ test.describe.serial('leave application', () => {
       await leaveApplication.fillLydo('abc');
       await leaveApplication.clickStatus();
       await leaveApplication.selectOption('Chờ duyệt');
-      await leaveApplication.clickFormDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '1');
+     await leaveApplication.clickFormDate();
+      await leaveApplication.selectDate('2026', 'Thg 1', '15');
       await leaveApplication.clickSave();
       await leaveApplication.clickToDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '2');
+      await leaveApplication.selectDate('2026', 'Thg 1', '16');
       await leaveApplication.clickSave();
       await leaveApplication.clickSaveFrom();
       await leaveApplication.validateTrunglich();
@@ -165,10 +169,10 @@ test.describe.serial('leave application', () => {
       await leaveApplication.clickStatus();
       await leaveApplication.selectOption('Mới');
       await leaveApplication.clickFormDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '7');
+      await leaveApplication.selectDate('2026', 'Thg 1', '19');
       await leaveApplication.clickSave();
       await leaveApplication.clickToDate();
-      await leaveApplication.selectDate('2026', 'Thg 1', '8');
+      await leaveApplication.selectDate('2026', 'Thg 1', '20');
       await leaveApplication.clickSave();
       await leaveApplication.clickSaveFrom();
       await toastPage.verifyToastMessage('Thêm thành công');
@@ -226,7 +230,7 @@ test.describe.serial('leave application', () => {
     await allure.step('Kiểm tra trường lý do giới hạn 255 ký tự', async () => {
       await leaveApplication.clickItemButton();
       await leaveApplication.clickAddButton();
-      const reason256 = leaveApplication.generateString(256);
+      const reason256 = leaveApplication.validateString(256);
       await leaveApplication.fillLydo(reason256);
       await leaveApplication.validateLydo();
     });

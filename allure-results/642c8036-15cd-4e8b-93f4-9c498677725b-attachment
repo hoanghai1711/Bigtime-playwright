@@ -1,0 +1,57 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e5]:
+  - main [ref=e6]:
+    - generic [ref=e8]:
+      - generic [ref=e13]:
+        - heading "Đăng nhập" [level=1] [ref=e16]
+        - generic [ref=e19]:
+          - alert [ref=e22]:
+            - generic [ref=e24]: 󰀨
+            - list [ref=e26]:
+              - listitem [ref=e27]: Tên đăng nhập hoặc mật khẩu không đúng
+          - generic [ref=e28]:
+            - generic [ref=e32]:
+              - generic [ref=e34]: 󰢏
+              - textbox "Email hoặc Số điện thoại ※ Email hoặc Số điện thoại ※" [ref=e37]: admin@bigapptech.vn
+              - generic:
+                - generic:
+                  - generic: Email hoặc Số điện thoại ※
+            - generic [ref=e41]:
+              - generic [ref=e43]: 󰣯
+              - textbox "Mật khẩu ※ Mật khẩu ※" [ref=e45]: "123456"
+              - button "appended action" [ref=e47] [cursor=pointer]: 󰈉
+              - generic:
+                - generic:
+                  - generic: Mật khẩu ※
+            - generic [ref=e52]:
+              - generic [ref=e54]:
+                - generic [ref=e55]: 󰄲
+                - checkbox "Nhớ nhân viên" [checked] [ref=e56] [cursor=pointer]
+              - generic [ref=e57] [cursor=pointer]: Nhớ nhân viên
+          - button "Đăng nhập" [active] [ref=e60] [cursor=pointer]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: 󰍂
+              - text: Đăng nhập
+        - generic [ref=e64]:
+          - generic [ref=e65]: 󰣯
+          - link "Quên mật khẩu" [ref=e66] [cursor=pointer]:
+            - /url: /forgot-password
+      - list [ref=e68]:
+        - listitem "English" [ref=e69] [cursor=pointer]:
+          - img [ref=e71]
+        - listitem "Tiếng Việt" [ref=e72] [cursor=pointer]:
+          - img [ref=e74]
+  - list [ref=e75]:
+    - listitem [ref=e76]
+    - listitem [ref=e77]
+    - listitem [ref=e78]
+    - listitem [ref=e79]
+    - listitem [ref=e80]
+    - listitem [ref=e81]
+    - listitem [ref=e82]
+    - listitem [ref=e83]
+    - listitem [ref=e84]
+    - listitem [ref=e85]
+```

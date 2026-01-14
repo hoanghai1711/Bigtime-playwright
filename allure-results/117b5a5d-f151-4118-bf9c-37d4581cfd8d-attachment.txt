@@ -1,0 +1,22 @@
+DB Error: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'leave-applications WHERE IN reason ('abc')' at line 1
+    at PromiseConnection.execute (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\node_modules\mysql2\lib\promise\connection.js:47:22)
+    at executeQuery (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\db\core\DBConnection.ts:40:33)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at clearTable (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\db\core\DBUtils.ts:31:28) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sql: "DELETE FROM leave-applications WHERE IN reason ('abc')",
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'leave-applications WHERE IN reason ('abc')' at line 1"
+}
+Failed to clear table leave-applications: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'leave-applications WHERE IN reason ('abc')' at line 1
+    at PromiseConnection.execute (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\node_modules\mysql2\lib\promise\connection.js:47:22)
+    at executeQuery (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\db\core\DBConnection.ts:40:33)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at clearTable (C:\Users\HOANG MINH HAI\Downloads\hrm-automation\db\core\DBUtils.ts:31:28) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sql: "DELETE FROM leave-applications WHERE IN reason ('abc')",
+  sqlState: '42000',
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'leave-applications WHERE IN reason ('abc')' at line 1"
+}

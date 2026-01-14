@@ -1,0 +1,153 @@
+# ================================
+# Workflow name hiển thị trên GitHub Actions
+# ================================
+name: Playwright Tests
+
+# ================================
+# Quyền cần thiết cho workflow
+# - contents: push code / commit
+# - pages: deploy GitHub Pages (Allure report)
+# - id-token: dùng cho auth (chuẩn GitHub Actions mới)
+# ================================
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# ================================
+# Điều kiện trigger workflow
+# ================================
+on:
+  # schedule:
+  #   - cron: "0 1 * * *" 
+  # Chạy theo lịch (đang tắt)
+  # 1:00 UTC = 8:00 sáng giờ VN
+
+  push:
+    # Chạy khi push code lên main hoặc master
+    branches: [main, develop]
+
+  pull_request:
+    # Chạy khi tạo / update PR vào main hoặc master
+    branches: [main, develop]
+
+# ================================
+# Concurrency
+# - Chỉ cho phép 1 job Playwright chạy tại 1 thời điểm
+# - Nếu có job mới -> job cũ sẽ bị cancel
+# ================================
+concurrency:
+  group: playwright-e2e
+  cancel-in-progress: true
+
+jobs:
+  test:
+    # Timeout tối đa của job (tránh treo CI vô hạn)
+    timeout-minutes: 250
+
+    # Môi trường chạy
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: BigTime Pre Version 1.0.14
+      AUTHOR: Hoang Hai
+      PLATFORM: Ubuntu
+      BROWSER: Chromium, Edge, Firefox
+
+    steps:
+    
+      # Checkout source code từ repository
+      - uses: actions/checkout@v4
+
+   
+      # Setup Node.js environment
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23.9.0
+
+      # Cache npm để tăng tốc CI
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Cài dependencies đúng version theo package-lock.json
+      - name: Install dependencies
+        run: npm ci
+
+      # Cài browser binaries cho Playwright
+      # --with-deps: cài thêm system dependencies cho Linux
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      
+
+
+      # Chạy Playwright tests
+      # Toàn bộ config lấy từ GitHub Secrets
+      - name: Run Playwright tests
+        run: npx playwright test 
+        
+        
+        env:
+          URL_BIGTIME: ${{ secrets.URL_BIGTIME }}
+          EMPLOYEE_USERNAME: ${{ secrets.EMPLOYEE_USERNAME }}
+          EMPLOYEE_PASSWORD: ${{ secrets.EMPLOYEE_PASSWORD }}
+     
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    
+      # Upload Playwright HTML report
+      # always(): upload kể cả khi test fail
+      # (phục vụ debug)
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+
+      # Generate Allure report
+      # KHÔNG chạy nếu job bị cancel thủ công
+      - name: Generate Allure Report
+        if: ${{ !cancelled() }}
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+
+  
+      # Deploy Allure report lên GitHub Pages
+      # Điều kiện:
+      # - Job không bị cancel
+      # - Chỉ deploy trên branch main
+      # - Không deploy khi là Pull Request
+      - name: Deploy Allure Report to GitHub Pages
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages
+
+      # Upload test artifacts phục vụ debug
+      # (screenshots, videos, traces, zip)
+      - name: Upload test artifacts (screenshots, videos, traces)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            test-results/
+            **/screenshots/**
+            **/*.png
+            **/*.webm
+            **/*.zip
+            playwright-report/

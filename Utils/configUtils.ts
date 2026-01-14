@@ -16,7 +16,7 @@ export class Config {
     return process.env.MANAGER_TEAM_PASSWORD || '';
   }
 
-  // Employee Account
+  // Employee Account 1
   static get employee_username(): string {
     return process.env.EMPLOYEE_USERNAME || '';
   }

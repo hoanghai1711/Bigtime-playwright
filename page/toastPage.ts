@@ -14,5 +14,6 @@ export class ToastPage extends BasePage {
   async verifyToastMessage(message: string) {
     await expect(this.toast).toBeVisible();
     await expect(this.toast).toHaveText(message);
+
   }
 }

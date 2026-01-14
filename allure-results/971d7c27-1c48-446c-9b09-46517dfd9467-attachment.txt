@@ -1,0 +1,1 @@
+Found 1 records in users with conditions: { code: { value: 'AUTO_EMP_002' }, user_type: { value: 1 } }

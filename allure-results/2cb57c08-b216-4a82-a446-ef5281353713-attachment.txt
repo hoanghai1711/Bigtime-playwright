@@ -1,0 +1,9 @@
+safeClick error: locator.waitFor: Error: strict mode violation: getByRole('gridcell', { name: 'Thg 1' }) resolved to 4 elements:
+    1) <div tabindex="0" role="gridcell" aria-selected="true" aria-disabled="false" class="dp__overlay_col">…</div> aka getByRole('gridcell', { name: 'Thg 1', exact: true })
+    2) <div tabindex="0" role="gridcell" aria-selected="false" aria-disabled="false" class="dp__overlay_col">…</div> aka getByRole('gridcell', { name: 'Thg 10' })
+    3) <div tabindex="0" role="gridcell" aria-selected="false" aria-disabled="false" class="dp__overlay_col">…</div> aka getByRole('gridcell', { name: 'Thg 11' })
+    4) <div tabindex="0" role="gridcell" aria-selected="false" aria-disabled="false" class="dp__overlay_col">…</div> aka getByRole('gridcell', { name: 'Thg 12' })
+
+Call log:
+  - waiting for getByRole('gridcell', { name: 'Thg 1' })
+

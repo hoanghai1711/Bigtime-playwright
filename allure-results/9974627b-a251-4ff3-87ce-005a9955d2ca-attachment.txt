@@ -1,0 +1,1 @@
+Cleared 0 rows in leave_applications with condition: reason IN ('abc').

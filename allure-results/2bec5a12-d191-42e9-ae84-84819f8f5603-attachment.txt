@@ -1,0 +1,7 @@
+safeClick error: locator.waitFor: Error: strict mode violation: getByRole('gridcell', { name: '4', exact: true }) resolved to 2 elements:
+    1) <div role="gridcell" class="dp__calendar_header_item">…</div> aka getByRole('gridcell', { name: '4' }).nth(1)
+    2) <div tabindex="0" aria-label="" role="gridcell" aria-disabled="false" class="dp__calendar_item">…</div> aka getByLabel('Calendar days').getByRole('gridcell', { name: '4', exact: true })
+
+Call log:
+  - waiting for getByRole('gridcell', { name: '4', exact: true })
+

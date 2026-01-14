@@ -58,6 +58,12 @@ export class LoginPage extends BasePage {
     await this.safeClick(this.LOGIN_BUTTON);
     await this.safeClick(this.CLICK_QUANLY_BUTTON);
   }
+   async loginfailed(username: string, password: string) {
+    await this.safeFill(this.USERNAME_INPUT, username);
+    await this.safeFill(this.PASSWORD_INPUT, password);
+    await this.safeClick(this.LOGIN_BUTTON);
+   
+  }
 
   async expectLoginSuccess() {
     await this.safeVerifyTextContains(this.DASHBOARD, 'BigTime');

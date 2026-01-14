@@ -8,7 +8,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: 0,
   workers: 1,
-  timeout: 120000,
+  timeout: 50000,
+  
 
   reporter: [
     ['list'],
@@ -21,19 +22,20 @@ export default defineConfig({
 
   use: {
     
+    // headless: false, // true run in headless mode. false run with browser window opened.
+//     viewport: null,
+// screenshot: 'only-on-failure',
+//   video: 'retain-on-failure',
+//   trace: 'on-first-retry',  
 
-    headless: false, // true run in headless mode. false run with browser window opened.
-    viewport: null,
-    // headless: isHeadless, 
-    // viewport: isHeadless ? { width: 1920, height: 1080 } : null,
-    launchOptions: {
+    headless: true, // 🔥 BẮT BUỘC CHO CI
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'on-first-retry',
+   
+      launchOptions: {
       args: ['--start-maximized',],
     },
-    // video: 'on',
-screenshot: 'only-on-failure',
-  video: 'retain-on-failure',
-  trace: 'on-first-retry',  
-    actionTimeout: 45000,
   },
 
   projects: [
