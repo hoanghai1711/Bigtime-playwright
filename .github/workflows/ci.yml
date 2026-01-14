@@ -9,9 +9,9 @@ on:
   # schedule:
   #   - cron: "0 1 * * *" # Runs at 8:00 AM UTC every day
   push:
-    branches: [main, master]
+    branches: [main, develop]
   pull_request:
-    branches: [main, master]
+    branches: [main, develop]
 
 concurrency:
   group: playwright-e2e
