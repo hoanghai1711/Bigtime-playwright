@@ -51,7 +51,7 @@ jobs:
 
   deploy:
     needs: build
-     if: always()
+    if: always()
     runs-on: ubuntu-latest
     environment:
       name: github-pages  
