@@ -1,0 +1,174 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - generic [ref=e10]: 󰍜
+        - text: 󰼬
+        - generic [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Admin Bigtime - System
+          - generic [ref=e15]:
+            - button "Quản lý" [ref=e16]:
+              - generic [ref=e17]:
+                - generic [ref=e18]: 󰳣
+                - paragraph [ref=e19]: Quản lý
+            - button "Chấm công" [ref=e20]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: 󱤤
+                - paragraph [ref=e23]: Chấm công
+            - button "Lương" [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 󱃣
+                - paragraph [ref=e27]: Lương
+        - generic [ref=e30] [cursor=pointer]:
+          - img [ref=e35]
+          - generic [ref=e36]: Nhân viên nhân sự
+        - button "Badge" [ref=e37] [cursor=pointer]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: 󰂜
+            - status "Badge" [ref=e42]
+        - button [ref=e43] [cursor=pointer]:
+          - generic [ref=e45]: 󰊓
+        - button "Đăng xuất" [ref=e46] [cursor=pointer]:
+          - generic [ref=e48]: Đăng xuất
+          - generic [ref=e50]: 󰍂
+    - banner [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e54]: Version 1.2.18
+        - list [ref=e55]:
+          - listitem "English" [ref=e56] [cursor=pointer]:
+            - img [ref=e58]
+          - listitem "Tiếng Việt" [ref=e59] [cursor=pointer]:
+            - img [ref=e61]
+        - button [ref=e62] [cursor=pointer]:
+          - generic [ref=e64]: 󰖙
+    - navigation [ref=e65]:
+      - listbox [ref=e67]:
+        - link "Trung tâm" [ref=e68] [cursor=pointer]:
+          - /url: /dashboard-admin
+          - generic [ref=e70]: 󰨇
+          - generic [ref=e72]: Trung tâm
+        - separator [ref=e73]
+        - generic [ref=e76]: Thông báo
+        - link "Danh sách thông báo" [ref=e77] [cursor=pointer]:
+          - /url: /list-notification
+          - generic [ref=e79]: 󰂜
+          - generic [ref=e81]: Danh sách thông báo
+        - separator [ref=e82]
+        - generic [ref=e85]: Đánh giá
+        - link "Quy trình đánh giá" [ref=e86] [cursor=pointer]:
+          - /url: /evaluation-progress
+          - generic [ref=e88]: 󰂽
+          - generic [ref=e90]: Quy trình đánh giá
+        - link "Danh sách đánh giá" [ref=e91] [cursor=pointer]:
+          - /url: /list-evaluation
+          - generic [ref=e93]: 󱙓
+          - generic [ref=e95]: Danh sách đánh giá
+        - separator [ref=e96]
+        - generic [ref=e99]: Chung
+        - link "Quản lý ngày phép năm" [ref=e100] [cursor=pointer]:
+          - /url: /leave-management
+          - generic [ref=e102]: 󱐫
+          - generic [ref=e104]: Quản lý ngày phép năm
+        - link "Đơn nghỉ phép" [ref=e105] [cursor=pointer]:
+          - /url: /leave-application
+          - generic [ref=e107]: 󱇗
+          - generic [ref=e109]: Đơn nghỉ phép
+        - link "Đơn thôi việc" [ref=e110] [cursor=pointer]:
+          - /url: /resignation
+          - generic [ref=e112]: 󱙏
+          - generic [ref=e114]: Đơn thôi việc
+    - main [ref=e115]:
+      - generic [ref=e120]:
+        - generic [ref=e123]:
+          - generic [ref=e125]: Đơn nghỉ phép
+          - button "Làm mới" [ref=e126] [cursor=pointer]:
+            - generic [ref=e127]:
+              - generic [ref=e128]: 󱎠
+              - text: Làm mới
+          - button "Thêm" [ref=e129] [cursor=pointer]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: 󰐕
+              - text: Thêm
+          - button [ref=e132] [cursor=pointer]:
+            - generic [ref=e134]: 󱪤
+        - generic [ref=e136]:
+          - combobox [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]:
+              - generic: Loại ngày nghỉ
+              - generic [ref=e142]:
+                - textbox "Open"
+            - generic [ref=e144]: 󰍝
+          - combobox [ref=e148] [cursor=pointer]:
+            - generic [ref=e150]:
+              - generic [ref=e152]: Mới
+              - textbox "Open": "0"
+            - generic [ref=e154]: 󰍝
+            - generic:
+              - generic:
+                - generic: Trạng thái
+          - generic [ref=e162]:
+            - generic [ref=e164]: 󰃳
+            - textbox "Chọn tháng Chọn tháng" [ref=e166]: 01-2026
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Chọn tháng
+          - generic [ref=e167]:
+            - button "Tìm kiếm" [ref=e168] [cursor=pointer]:
+              - generic [ref=e170]: 󰒊
+              - generic [ref=e171]: Tìm kiếm
+            - button "Xóa" [ref=e172] [cursor=pointer]:
+              - generic [ref=e174]: 󰅖
+              - generic [ref=e175]: Xóa
+        - generic [ref=e176]:
+          - table [ref=e178]:
+            - rowgroup [ref=e179]:
+              - row "# Tên nhân viên Nghỉ từ ngày Đến hết ngày Số ngày nghỉ Lý do Loại ngày nghỉ Trạng thái" [ref=e180]:
+                - columnheader "#" [ref=e181]:
+                  - generic [ref=e182]: "#"
+                - columnheader "Tên nhân viên" [ref=e183]:
+                  - generic [ref=e184]: Tên nhân viên
+                - columnheader "Nghỉ từ ngày" [ref=e185]:
+                  - generic [ref=e186]: Nghỉ từ ngày
+                - columnheader "Đến hết ngày" [ref=e187]:
+                  - generic [ref=e188]: Đến hết ngày
+                - columnheader "Số ngày nghỉ" [ref=e189]:
+                  - generic [ref=e190]: Số ngày nghỉ
+                - columnheader "Lý do" [ref=e191]:
+                  - generic [ref=e192]: Lý do
+                - columnheader "Loại ngày nghỉ" [ref=e193]:
+                  - generic [ref=e194]: Loại ngày nghỉ
+                - columnheader "Trạng thái" [ref=e195]:
+                  - generic [ref=e196]: Trạng thái
+            - rowgroup [ref=e197]:
+              - row "Không có dữ liệu" [ref=e198]:
+                - cell "Không có dữ liệu" [ref=e199]
+          - generic [ref=e201]:
+            - generic [ref=e202]: Tổng
+            - text: 0,
+            - generic [ref=e203]: Hiển thị
+            - combobox [ref=e206] [cursor=pointer]:
+              - generic [ref=e208]:
+                - generic [ref=e210]: "20"
+                - textbox "Open": "20"
+              - generic [ref=e212]: 󰍝
+            - navigation "Pagination Navigation" [ref=e213]:
+              - list [ref=e214]:
+                - listitem [ref=e215]:
+                  - button "Previous page" [disabled]:
+                    - generic:
+                      - generic: 󰅁
+                - listitem [ref=e216]:
+                  - button "Page 1, Current page" [disabled]:
+                    - generic: "1"
+                - listitem [ref=e217]:
+                  - button "Next page" [disabled]:
+                    - generic:
+                      - generic: 󰅂
+  - generic:
+    - tooltip
+```

@@ -1,0 +1,2 @@
+Cleared 0 rows in users with condition: code LIKE '%AUTO_EMP_%'.
+Cleared 0 rows in users with condition: name IN ('LOGIN_EMP_001').

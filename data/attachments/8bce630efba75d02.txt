@@ -1,0 +1,4 @@
+safeClick error: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('//div[@class=\'dp__overlay_cell dp__overlay_cell_pad\'][normalize-space()=\'2026\']')
+

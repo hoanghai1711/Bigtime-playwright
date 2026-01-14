@@ -1,0 +1,13 @@
+safeClick error: expect(locator).toBeEnabled() failed
+
+Locator:  getByLabel('Calendar days').getByRole('gridcell', { name: '7', exact: true })
+Expected: enabled
+Received: disabled
+Timeout:  30000ms
+
+Call log:
+  - Expect "toBeEnabled" with timeout 30000ms
+  - waiting for getByLabel('Calendar days').getByRole('gridcell', { name: '7', exact: true })
+    33 × locator resolved to <div tabindex="0" aria-label="" role="gridcell" aria-disabled="true" class="dp__calendar_item">…</div>
+       - unexpected value "disabled"
+
