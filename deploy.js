@@ -5,7 +5,7 @@ ghpages.publish(
   path.join(process.cwd(), 'allure-report'),
   {
     branch: 'gh-pages',
-    repo: 'https://github.com/hoanghai1711/bigtime-playwright.git',
+    repo: 'https://github.com/hoanghai1711/Bigtime-playwright.git',
     dotfiles: true,
     history: false,
     message: 'Deploy Allure Report',
