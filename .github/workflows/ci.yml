@@ -1,29 +1,21 @@
-# ================================
-# Workflow name hiển thị trên GitHub Actions
-# ================================
+
 name: Playwright Tests
 
-# ================================
-# Quyền cần thiết cho workflow
-# ================================
+#quyền để wfl chạy đúng
 permissions:
   contents: write
   pages: write
   id-token: write
 
 
-# ================================
-# Điều kiện trigger workflow
-# ================================
+#check nhánh để chạy
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
 
-# ================================
-# Concurrency control
-# ================================
+
 concurrency:
   group: playwright-e2e
   cancel-in-progress: true
