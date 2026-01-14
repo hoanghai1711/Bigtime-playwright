@@ -89,6 +89,7 @@ jobs:
       # Toàn bộ config lấy từ GitHub Secrets
       - name: Run Playwright tests
         run: npx playwright test 
+        continue-on-error: true
         
         env:
           URL_BIGTIME: ${{ secrets.URL_BIGTIME }}

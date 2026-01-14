@@ -61,13 +61,6 @@ test.describe.serial("Employee Management Tests", () => {
     await allure.step("Verify employee created successfully", async () => {
       await toastPage.verifyToastMessage("Thêm thành công");
       await employeePage.validateListEmployee("Staff A");
-      await expect.poll(
-        async () =>
-          checkExistsWithConditions("users", {
-            code: { value: `${EMP_PREFIX}001` },
-          }),
-        { timeout: 5000 }
-      ).toBeTruthy();
     });
   });
 

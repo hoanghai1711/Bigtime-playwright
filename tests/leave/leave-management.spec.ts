@@ -39,7 +39,7 @@ test.describe.serial('Leave Management', () => {
   });
 
      test.beforeAll(async () => {
-      await clearTable('leave_managements', "year IN ('2027', '2028', '2029', '2040')");
+       await clearTable('leave_managements', "year IN ('2027', '2028', '2029', '2040')");
     }  );
   test('Add leave', async () => {
     allure.description('Verify that annual leave can be created successfully with valid information');
@@ -185,7 +185,7 @@ test.describe.serial('Leave Management', () => {
     await allure.step('Tạo phép năm với nhân viên đã tồn tại', async () => {
       await leaveManagementPage.clickItemPhepNam();
       await leaveManagementPage.clickAddButton();
-      await leaveManagementPage.selectYear('2029  ');
+      await leaveManagementPage.selectYear('2029');
       await leaveManagementPage.fillNgayPhep('10');
       await leaveManagementPage.selectTrangThai('Chờ duyệt');
       await leaveManagementPage.clickAddButtonSecond();
@@ -368,12 +368,12 @@ test.describe.serial('Leave Management', () => {
     
     await allure.step('Lọc phép năm theo input năm', async () => {
       await leaveManagementPage.clickItemPhepNam();
-      await leaveManagementPage.clickYearInput('2025');
+      await leaveManagementPage.clickYearInput('2026');
       await leaveManagementPage.clickSreachButton();
     });
     
     await allure.step('Verify filtered results by year', async () => {
-      await leaveManagementPage.checkYear('2025');
+      await leaveManagementPage.checkYear('2026');
     });
   });
 
