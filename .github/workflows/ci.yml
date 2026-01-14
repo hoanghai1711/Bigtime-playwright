@@ -17,9 +17,9 @@ permissions:
 # ================================
 on:
   push:
-    branches: [main, master]
+    branches: [main, develop]
   pull_request:
-    branches: [main, master]
+    branches: [main, develop]
 
 # ================================
 # Concurrency control
@@ -37,7 +37,7 @@ jobs:
       ENVIRONMENT: BigTime Pre Version 1.0.14
       AUTHOR: hoanghai
       PLATFORM: Ubuntu
-      BROWSER: Chromium, Edge
+      BROWSER: Chromium, Edge, Firefox
 
     steps:
       # Checkout source code
@@ -63,7 +63,7 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: npm ci
-        - name: Run tests
+      - name: Run tests
         run: npx playwright test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
