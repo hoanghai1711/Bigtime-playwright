@@ -37,7 +37,7 @@ jobs:
       ENVIRONMENT: BigTime Pre Version 1.0.14
       AUTHOR: hoanghai
       PLATFORM: Ubuntu
-      BROWSER: Chromium, Edge, Firefox
+      BROWSER: Chromium, Edge
 
     steps:
       # Checkout source code
